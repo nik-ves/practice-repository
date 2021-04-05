@@ -16,13 +16,29 @@ html {
 
     grid-auto-rows: 80px;
     grid-auto-columns: .5fr;
-    grid-auto-flow: column;
+    grid-auto-flow: row;
+
+    align-items: center; /* Default is Stretch */
+    justify-items: center; /* Default is Stretch */
 }
 
 .item {
-    padding: 20px;
+    padding: 10px;
     color: white;
     font-family: sans-serif;
     font-size: 30px;
     background-color: orangered;
+}
+
+.item--4 {
+    background-color: crimson;
+    grid-row: 2 / span 3;
+
+    align-self: start;
+    justify-self: start;
+}
+
+.item--7 {
+    background-color: palevioletred;
+    grid-column: 1 / -1;
 }
