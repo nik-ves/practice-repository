@@ -6,11 +6,17 @@ let currentResult = defaultResult;
 // parseInt(value) and parseFloat(value) can also be written shortly with a + before a value, example: +userInput.value
 // .toString() is changing the value of something to a string, example: currentResult.toString()
 
+function getUserNumberInput() {
+    return parseInt(userInput.value);
+}
+
 function add() {
-    currentResult = currentResult + parseInt(userInput.value); 
-    outputResult(currentResult, '');
+    const enteredNumber = getUserNumberInput();
+    const calcDescription = `${currentResult} + ${enteredNumber}`;
+
+    currentResult = currentResult + enteredNumber; 
+    outputResult(currentResult, calcDescription);
 }
 
 addBtn.addEventListener('click', add);
  
-
