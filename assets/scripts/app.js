@@ -4,21 +4,19 @@ let logEntries = [];
 
 /*
 
--- null / undefined / NaN
+typeof operator is used to check type of a value
 
--- null: 
-null is a never a default value.
-Something has to be set to has a value null.
-Often used if you want to "reset" or "clear" a variable
+typeof defaultResult
+"number"
 
--- undefined: 
-undefind is a default value of uninitalized variables
-If a created variable doesnt have a value at the beggining then this variable is undefined!
-undefined should never be assigned to a value!
+let userName = 'Nikola'
+"string"
 
--- NaN (Not a Number)
-Techincally its of type number and can be used in calculations.
-It yields NaN and it's the result of invalid calculations (Example: 3 * 'Nikola')
+typeof logEntries
+"object"
+
+typeof true
+"boolean"
 
 */
 
