@@ -21,6 +21,10 @@ logEntries.push(enteredNumber);
 console.log(logEntries[n]); // n is an index number and first position in an array is 0, second is 1...
 Example: console.log(logEntries[1]); Accessing a second element in an array
 
+-- Creating a object 
+
+const logEntry = {};
+
 */
 
 function getUserNumberInput() {
@@ -37,8 +41,14 @@ function add() {
     const initalResult = currentResult;
     currentResult += enteredNumber;
     createAndWriteOutput('+', initalResult, enteredNumber);
-    logEntries.push(enteredNumber);
-    console.log(logEntries[0]);
+    const logEntry = {
+        operation: 'ADD',
+        prevResult: initalResult,
+        number: enteredNumber,
+        result: currentResult
+    };
+    logEntries.push(logEntry);
+    console.log(logEntries);
 }
 
 function subtract() {
