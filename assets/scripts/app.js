@@ -1,16 +1,25 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
+let logEntries = []; // It can be empty or can have some inital value
 
 /*
 
-Data types:
-INTEGER is a number without decimal place (2, -3, ...)
-FLOAT is a number with decimal place (22.956, 1.35, ...)
-STRING is a text (Anything between "", '' and `` will be counted as text)
-BOOLEANS are values that can have one of two possible values (TRUE or FALSE)
-ARRAYS is a list of data ([1, 3, 5]) 
-OBJECTS allow you to group data (Example: { name: 'Nikola',
-                                            age: 22 })
+-- One way of editing an array is overwriting the old one:
+
+let logEntries = [];
+logEntries = [enteredNumber];
+
+-- If we want to add a new element to an existing array is with a function
+
+let logEntries = [];
+logEntries.push();
+
+-- Accesing a specific element in a array:
+
+let logEntries = [];
+logEntries.push(enteredNumber);
+console.log(logEntries[n]); // n is an index number and first position in an array is 0, second is 1...
+Example: console.log(logEntries[1]); Accessing a second element in an array
 
 */
 
@@ -28,6 +37,8 @@ function add() {
     const initalResult = currentResult;
     currentResult += enteredNumber;
     createAndWriteOutput('+', initalResult, enteredNumber);
+    logEntries.push(enteredNumber);
+    console.log(logEntries[0]);
 }
 
 function subtract() {
