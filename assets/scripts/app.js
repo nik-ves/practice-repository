@@ -13,28 +13,33 @@ function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
 function add() {
     const enteredNumber = getUserNumberInput();
     const initalResult = currentResult;
-    currentResult = currentResult + enteredNumber;
+    // Another way of writing code from bellow which works for all the other operators
+    // currentResult = currentResult + enteredNumber; can be writter as currentResult += enteredNumber;
+    // currentResult = currentResult + 1; can be writter as currentResult++ (increment) 
+    // currentResult = currentResult - 1; can be writter as currentResult-- (decrement)
+    // Note that currentResult++ is different from ++currentResult, same applies for currentResult
+    currentResult += enteredNumber;
     createAndWriteOutput('+', initalResult, enteredNumber);
 }
 
 function subtract() {
     const enteredNumber = getUserNumberInput();
     const initalResult = currentResult;
-    currentResult = currentResult - enteredNumber;
+    currentResult -= enteredNumber;
     createAndWriteOutput('-', initalResult, enteredNumber);
 }
 
 function multiply() {
     const enteredNumber = getUserNumberInput();
     const initalResult = currentResult;
-    currentResult = currentResult * enteredNumber;
+    currentResult *= enteredNumber;
     createAndWriteOutput('*', initalResult, enteredNumber);
 }
 
 function divide() {
     const enteredNumber = getUserNumberInput();
     const initalResult = currentResult;
-    currentResult = currentResult / enteredNumber;
+    currentResult /= enteredNumber;
     createAndWriteOutput('/', initalResult, enteredNumber);
 }
 
