@@ -48,6 +48,8 @@ function add() {
         result: currentResult
     };
     logEntries.push(logEntry);
+    console.log(logEntry.prevResult); // Accessing objects operation, which is done by entering objects name, adding a dot and chosing which of the data we want
+                                      // Example console.log(logEntry.operation); will give us name of the operation
     console.log(logEntries);
 }
 
