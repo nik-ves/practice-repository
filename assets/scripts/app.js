@@ -4,19 +4,13 @@ let logEntries = [];
 
 /*
 
-typeof operator is used to check type of a value
-
-typeof defaultResult
-"number"
-
-let userName = 'Nikola'
-"string"
-
-typeof logEntries
-"object"
-
-typeof true
-"boolean"
+= - assigning a value
+== - compare two values (a == b)
+!= - values not being equal (a != b)
+=== and !== - checks for value AND type (in)equality (a === b / a !== b)
+> & < - checks for value being greater / smaller (a > b / a < b)
+>= & <= - check for value being greater or equal / smaller or equal (a >= b / a <= b)
+! - check if NOT true
 
 */
 
@@ -40,20 +34,27 @@ function writeToLog(operationIdentifier, prevResult, operationNumber, newResult)
     console.log(logEntries);
 }
 
-function add() {
+function calculateResult(calculationType) {
     const enteredNumber = getUserNumberInput();
     const initalResult = currentResult;
-    currentResult += enteredNumber;
-    createAndWriteOutput('+', initalResult, enteredNumber);
-    writeToLog('ADD', initalResult, enteredNumber, currentResult);
+    let mathOperator;
+    if (calculationType === 'ADD') {
+        currentResult += enteredNumber;
+        mathOperator = '+';
+    } else {
+        currentResult -= enteredNumber;
+        mathOperator = '-';
+    }
+    createAndWriteOutput(mathOperator, initalResult, enteredNumber);
+    writeToLog(calculationType, initalResult, enteredNumber, currentResult);
+}
+
+function add() {
+    calculateResult('ADD');
 }
 
 function subtract() {
-    const enteredNumber = getUserNumberInput();
-    const initalResult = currentResult;
-    currentResult -= enteredNumber;
-    createAndWriteOutput('-', initalResult, enteredNumber);
-    writeToLog('SUBTRACT', initalResult, enteredNumber, currentResult);
+    calculateResult('SUBTRACT');
 }
 
 function multiply() {
