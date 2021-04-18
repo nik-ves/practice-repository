@@ -11,6 +11,8 @@ let logEntries = [];
 > & < - checks for value being greater / smaller (a > b / a < b)
 >= & <= - check for value being greater or equal / smaller or equal (a >= b / a <= b)
 ! - check if NOT true
+&& - AND
+|| - OR
 
 */
 
@@ -35,6 +37,20 @@ function writeToLog(operationIdentifier, prevResult, operationNumber, newResult)
 }
 
 function calculateResult(calculationType) {
+    if (calculationType !== 'ADD' &&
+        calculationType !== 'SUBTRACT' &&
+        calculationType !== 'MULTIPLY' &&
+        calculationType !== 'DIVIDE') {
+        return; 
+    } // WITH && (AND) ONLY RETURNS TRUE IF ALL CONDITIONS ARE TRUE
+
+    // if (calculationType === 'ADD' || 
+    //     calculationType === 'SUBTRACT' || 
+    //     calculationType === 'MULTIPLY' || 
+    //     calculationType === 'DIVIDE') {
+
+    // } // WITH || (OR) IF ONE OF THEM IS TRUE WHOLE CONDITION TRUE
+
     const enteredNumber = getUserNumberInput();
     const initalResult = currentResult;
     let mathOperator;
@@ -51,7 +67,7 @@ function calculateResult(calculationType) {
         currentResult /= enteredNumber;
         mathOperator = '/';
     } 
-    
+
     createAndWriteOutput(mathOperator, initalResult, enteredNumber);
     writeToLog(calculationType, initalResult, enteredNumber, currentResult);
 }
