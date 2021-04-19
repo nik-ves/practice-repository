@@ -2,20 +2,6 @@ const defaultResult = 0;
 let currentResult = defaultResult;
 let logEntries = []; 
 
-/*
-
-= - assigning a value
-== - compare two values (a == b)
-!= - values not being equal (a != b)
-=== and !== - checks for value AND type (in)equality (a === b / a !== b)
-> & < - checks for value being greater / smaller (a > b / a < b)
->= & <= - check for value being greater or equal / smaller or equal (a >= b / a <= b)
-! - check if NOT true
-&& - AND
-|| - OR
-
-*/
-
 function getUserNumberInput() {
     return parseInt(userInput.value);
 }
@@ -37,19 +23,14 @@ function writeToLog(operationIdentifier, prevResult, operationNumber, newResult)
 }
 
 function calculateResult(calculationType) {
+    const enteredNumber = getUserNumberInput();
     if (calculationType !== 'ADD' &&
         calculationType !== 'SUBTRACT' &&
         calculationType !== 'MULTIPLY' &&
-        calculationType !== 'DIVIDE') {
+        calculationType !== 'DIVIDE' || 
+        !enteredNumber) {
         return; 
-    } // WITH && (AND) ONLY RETURNS TRUE IF ALL CONDITIONS ARE TRUE
-
-    // if (calculationType === 'ADD' || 
-    //     calculationType === 'SUBTRACT' || 
-    //     calculationType === 'MULTIPLY' || 
-    //     calculationType === 'DIVIDE') {
-
-    // } // WITH || (OR) IF ONE OF THEM IS TRUE WHOLE CONDITION TRUE
+    } 
 
     const enteredNumber = getUserNumberInput();
     const initalResult = currentResult;
