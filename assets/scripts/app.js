@@ -217,17 +217,25 @@ function printLogHandler() {
     //     console.log(battleLog[i]);
     // }
 
-    let i = 0;
-    for (const logEntry of battleLog) {
-        if (!lastLoggedEntry && lastLoggedEntry !== 0 || lastLoggedEntry < i) {
-            console.log(`#${i}`);
-            for (const key in logEntry) {
-                console.log(`${key} => ${logEntry[key]}`);
-            }
-            lastLoggedEntry = i;
-            break;
+    // let i = 0;
+    // for (const logEntry of battleLog) {
+    //     if (!lastLoggedEntry && lastLoggedEntry !== 0 || lastLoggedEntry < i) {
+    //         console.log(`#${i}`);
+    //         for (const key in logEntry) {
+    //             console.log(`${key} => ${logEntry[key]}`);
+    //         }
+    //         lastLoggedEntry = i;
+    //         break;
+    //     }
+    //     i++;
+    // }
+
+    for (let i = 0; i < 5; i++) {
+        if (i === 3) {
+            continue; // In short, continue in this case skips number 3 in this loop where break would stop the loop
         }
-        i++;
+
+        console.log(i);
     }
 
     // let i = 0;
