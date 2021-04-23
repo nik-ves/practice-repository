@@ -230,13 +230,13 @@ function printLogHandler() {
     //     i++;
     // }
 
-    for (let i = 0; i < 5; i++) {
-        if (i === 3) {
-            continue; // In short, continue in this case skips number 3 in this loop where break would stop the loop
-        }
+    // for (let i = 0; i < 5; i++) {
+    //     if (i === 3) {
+    //         continue; // In short, continue in this case skips number 3 in this loop where break would stop the loop
+    //     }
 
-        console.log(i);
-    }
+    //     console.log(i);
+    // }
 
     // let i = 0;
     // while (i < 3) {
@@ -244,11 +244,18 @@ function printLogHandler() {
     //     i++;
     // }
 
-    // let i = 0;
-    // do {
-    //     console.log(i);
-    //     i++;
-    // } while (i < 3);
+    let i = 0;
+    outerWhile: do {
+        console.log('Outer', i);
+        innerFor: for (let j = 0; j < 5; j++) {
+            if (k === 3) {
+                // break outerWhile;
+                // continue outerWhile; -- Creates infinite loop
+            }
+            console.log('Inner', j)
+        }
+        i++;
+    } while (i < 3);
 }
 
 attackBtn.addEventListener('click', attackHandler);
