@@ -72,3 +72,25 @@ startGameBtn.addEventListener("click", () => {
     alert(message);
     gameIsRunning = false;
 });
+
+// Not related to the game
+// Rest operator
+
+const sumUp = (...numbers) => {
+    let sum = 0;
+    for (const num of numbers) {
+        sum += num;
+    }
+    return sum;
+};
+
+const subtractUp = function() {
+    let sum = 0;
+    for (const num of arguments) {
+        sum -= num;
+    }
+    return sum;
+}
+
+console.log(sumUp(1, 3, 5, 4, 1, 3, 7));
+console.log(subtractUp(1, 3, 5, 4, 1, 3, 7));
