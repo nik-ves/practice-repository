@@ -35,14 +35,6 @@ const getComputerChoice = () => {
     }
 };
 
-// --- ARROW FUNCTIONS ---
-// General syntax : (arg1, arg2) => { ... }
-// No arguments : () => { ... }
-// Exactly one argument/parametar : arg => { ... }
-// Exactly one expresion : (a, b) => a + b (Curly braces can be omitted, result is returned)
-
-// const add = (a, b) => a + b;
-
 const getWinner = (cChoice, pChoice) =>
     cChoice === pChoice
         ? RESULT_DRAW
@@ -52,7 +44,7 @@ const getWinner = (cChoice, pChoice) =>
         ? RESULT_PLAYER_WINS
         : RESULT_COMPUTER_WINS;
 
-startGameBtn.addEventListener("click", function () {
+startGameBtn.addEventListener("click", () => {
     if (gameIsRunning) {
         return;
     }
@@ -62,5 +54,15 @@ startGameBtn.addEventListener("click", function () {
     const playerChoice = getPlayerChoice();
     const computerChoice = getComputerChoice();
     const winner = getWinner(computerChoice, playerChoice);
-    console.log(winner);
+    
+    let message = `You picked ${playerChoice}, computer picked ${computerChoice}, therefore you `
+    if (winner === RESULT_DRAW) {
+        message = message + 'had a draw.';
+    } else if (winner === RESULT_PLAYER_WINS) {
+        message = message + 'won.';
+    } else {
+        message = message + 'lost.';
+    }
+    alert(message);
+    gameIsRunning = false;
 });
