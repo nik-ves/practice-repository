@@ -77,17 +77,16 @@ startGameBtn.addEventListener("click", () => {
 // Rest operator
 
 // Function created inside of another functions only work in the function where it was created
-const sumUp = (...numbers) => {
+const sumUp = (resultHandler, ...numbers) => {
     const validateNumber = (number) => {
         return isNaN(number) ? 0 : number;
     };
-
 
     let sum = 0;
     for (const num of numbers) {
         sum += validateNumber(num);
     }
-    return sum;
+    resultHandler(sum);
 };
 
 const subtractUp = function() {
@@ -96,7 +95,11 @@ const subtractUp = function() {
         sum -= num;
     }
     return sum;
-}
+};
 
-console.log(sumUp(1, 3, 5, 4, 1, 3, 7));
+const showResult = (result) => {
+    alert('The result after adding all number is: ' + result);
+};
+
+console.log(sumUp(showResult, 3, 5, 'fdsa', 1, 3, 7));
 console.log(subtractUp(1, 3, 5, 4, 1, 3, 7));
