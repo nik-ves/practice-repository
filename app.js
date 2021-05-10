@@ -1,8 +1,14 @@
-const h1 = document.getElementById('main-title');
+const h1 = document.querySelector('h1');
+const ul = document.querySelector('ul');
+const li = document.querySelector('.list-item');
 
-document.getElementsByClassName('list-item'); // Old aproach
-document.querySelector('.list-item'); // Returns first matching item
-document.querySelectorAll('.list-item'); // Returns all 
+h1.textContent;
+h1.className;
+h1.textContent = 'Some new text for a header';
+h1.className = 'title';
+h1.style.color = 'red';
+h1.style.backgroundColor = 'green';
 
-document.querySelector('ul li:first-of-type'); // First item in the list
-document.querySelector('ul li:last-of-type'); // Last item in the list
+ul.style.backgroundColor = 'blue';
+
+li.style.color = 'red';
