@@ -1,22 +1,28 @@
-const ul = document.body.firstElementChild.nextElementSibling;
-const firstLi = ul.firstElementChild;
+// const ul = document.body.firstElementChild.nextElementSibling;
+// const firstLi = ul.firstElementChild;
 
-console.log(firstLi);
+// console.log(firstLi);
 
-const section = document.querySelector('section');
-const button = document.querySelector('button');
+// const section = document.querySelector('section');
+// const button = document.querySelector('button');
 
-// section.style.backgroundColor = 'green';
-// section.className = '';
-section.className = 'red-bg';
+// // section.style.backgroundColor = 'green';
+// // section.className = '';
+// section.className = 'red-bg';
 
-button.addEventListener('click', () => {
-    // if (section.className === 'red-bg visible') {
-    //     section.className = 'red-bg invisible';
-    // } else {
-    //     section.className = 'red-bg visible';
-    // }
+// button.addEventListener('click', () => {
+//     // if (section.className === 'red-bg visible') {
+//     //     section.className = 'red-bg invisible';
+//     // } else {
+//     //     section.className = 'red-bg visible';
+//     // }
 
-    section.classList.toggle('visible');
-    section.classList.toggle('invisible');
-})
+//     section.classList.toggle('visible');
+//     section.classList.toggle('invisible');
+// })
+
+const list = document.querySelector('ul');
+const newLi = document.createElement('li')
+
+list.appendChild(newLi);
+newLi.textContent = 'Item 4';
