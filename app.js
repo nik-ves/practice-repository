@@ -1,7 +1,22 @@
-const ul = document.querySelector('ul');
-ul.children[1] // Selecting the second element
+const ul = document.body.firstElementChild.nextElementSibling;
+const firstLi = ul.firstElementChild;
 
-ul.firstElementChildl;
-ul.firstChild;
-ul.lastElementChild;
-ul.lastChild;
+console.log(firstLi);
+
+const section = document.querySelector('section');
+const button = document.querySelector('button');
+
+// section.style.backgroundColor = 'green';
+// section.className = '';
+section.className = 'red-bg';
+
+button.addEventListener('click', () => {
+    // if (section.className === 'red-bg visible') {
+    //     section.className = 'red-bg invisible';
+    // } else {
+    //     section.className = 'red-bg visible';
+    // }
+
+    section.classList.toggle('visible');
+    section.classList.toggle('invisible');
+})
