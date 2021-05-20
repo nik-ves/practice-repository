@@ -1,193 +1,102 @@
 /*
 
-- globalne proneljive -> VAR
-petlje
-...
+find()
+Problem i kako radi? Cim naidje na prvi rezultat, izlazi iz petlje / provere
+find() radi samo sa jedinstvenim rezultatima pretrage
 
 */
 
-var boje = ['red', 'green', 'blue'];
-
-for (const colors of boje ) {
-    console.log(colors);
-}
-
-console.log('----------------------------------------');
-
-for (let i = 0; i<boje.length; i++) {
-    console.log(boje[i]);
-}
-
-console.log('----------------------------------------');
-
-boje.forEach(function(boja) {
-    console.log(boja);
-})
-
-console.log('----------------------------------------');
-
-/*
-
-brojevi
-
-*/
-
-var numbers = [1, 2, 3, 4, 5];
-var sum = 0;
-
-numbers.forEach(function(number) {
-    sum += number;
-})
-
-console.log(sum);
-
-console.log('----------------------------------------');
-
-/*
-
-metod push / niz
-
-*/
-
-var numbers = [1, 2, 3];
-var doubledNumbers = [];
-
-// svaki element niza mnozimo sa 2
-
-for (let i = 0; i<numbers.length; i++) {
-    doubledNumbers.push(numbers[i] * 2);
-}
-
-console.log(numbers);
-console.log(doubledNumbers);
-
-console.log('----------------------------------------');
-
-/*
-
-ECMA
-forEach helpes -> metod map() 
-- pravi novi niz
-- prolazi sve clanove niza pojedinacno
-- ne menja originalni niz
-- ne menaj dimenziju/strukturu niza koje nemaju nikakvu vrednost
-- unutar anonime funkcije, obavezan je return
-*/
-
-// anonimna funkcija
-
-var doubled = numbers.map(function(number) {
-    return number * 2;
-})
-
-console.log(doubled);
-
-console.log('----------------------------------------');
-
-/*
-
-- objektni
-- map()
-
-*/
-
-var automobili = [
-    {model: 'jugo', cena: 'skup'},
-    {model: 'audi', cena: 'jeftin'},
-    {model: 'mercedes', cena: 'skup'}
+let korisnici = [
+    {ime: 'Marko', id: 1},
+    {ime: 'Nikola'},
+    {ime: 'Ana'},
+    {ime: 'Marko', id: 4},
+    {ime: 'Stefan'}
 ];
 
-var cene = automobili.map(function(automobil) {
-    return automobil.cena;
-});
+// var korisnik;
+// for(var i = 0; i<korisnici.length; i++) {
+//     if (korisnici[i].ime === 'Marko') {
+//         korisnik = korisnici[i];
+//     }
+// }
 
-console.log(cene);
+// let stampajKorisnika = korisnik;
+// console.log(stampajKorisnika);
 
-console.log('----------------------------------------');
+let stampajKorisnika = korisnici.find(function(i) {
+    return i.ime === 'Marko';
+})
+
+console.log(stampajKorisnika);
+console.log('---------- Sledeci primer ----------');
 
 /*
 
-- ECMA helper: filter()
+find()
+objekat ima osobinu this.model = model 
 
 */
 
-var proizvodi = [
-    {ime: 'lopta', tip: 'sport'},
-    {ime: 'film', tip: 'zabava'},
-    {ime: 'lopta', tip: 'sport'},
-    {ime: 'muzika', tip: 'zabava'}
+function Auto (model) {
+    this.model = model;
+}
+
+// Inicijalizujemo / pravimo objekte
+let automobili = [
+    new Auto ('Audi'),
+    new Auto ('BMW'),
+    new Auto ('Mercedes'),
+    new Auto ('Yugo')
 ];
 
-// VanilaJS - prikazi samo neke proizvode
+let stampajAutomobile = automobili.find(function(i) {
+    return i.model === 'Yugo';
+})
 
-var filtrirajProizvode = [];
-for (let i = 0; i<proizvodi.length; i++) {
-    if (proizvodi[i].tip === 'zabava') {
-        filtrirajProizvode.push(proizvodi[i]);
+console.log(stampajAutomobile);
+console.log('---------- Sledeci primer ----------');
+
+let cpu = [
+    {proizvodjac: 'Intel', brzina: 3.4},
+    {proizvodjac: 'AMD', brzina: 1.7},
+    {proizvodjac: 'nVidia', brzina: 2.4},
+];
+
+/*
+
+- svi procesori mogu da pokrenu racunar => true 
+- samo neki procesuri mogu da pokrenu racunar => false
+
+*/
+
+let sviProc = true;
+var samoNekiProc = false;
+
+for (let i = 0; i<cpu.length; i++) {
+    let proc = cpu[i];
+
+    if(proc.brzina < 2.8) {
+        sviProc = false;
+    } else {
+        samoNekiProc = true;
     }
 }
 
-console.log(filtrirajProizvode);
+console.log(sviProc);
+console.log(samoNekiProc);
+console.log('---------- Sledeci primer ----------');
 
-// ECMA 
+/*
 
-let filtrirani = proizvodi.filter(function(i) {
-    return i.tip === 'zabava';
+every()
+- ocekuje true ili false i svi uslovi moraju da budu ispunjeni
+
+*/
+
+let vratiBrzinu = cpu.every(function(procesor) {
+    return procesor.brzina < 4;
 })
 
-console.log(filtrirani);
-
-
-
-/*
-
-filter() prema ceni i kvalitetu / objektni / 
-
-*/
-
-var proizvodi = [
-    {ime: 'rekreacija', tip: 'sport', cena: 0, kvalitet: 2},
-    {ime: 'film', tip: 'zabava', cena: 10, kvalitet: 25},
-    {ime: 'klikeri', tip: 'sport', cena: 20, kvalitet: 14},
-    {ime: 'muzika', tip: 'zabava', cena: 5, kvalitet: 3}
-];
-
-/*
-
-zadatak: 
-- uslov: tip je sport / kvalitet veci od nule, cena manja od 15
-- helper: filter()
-- potrebno: anonimna funkcija / podsetnik > return za svaku anonimnu funkciju
-
-*/
-
-let zadatak = proizvodi.filter(function(i) {
-    return i.tip === 'sport' && i.cena < 15 && i.kvalitet > 0;
-});
-
-console.log(zadatak);
-
-console.log('----------------------------------------');
-
-/*
-
-filteri prema ID-ju
-
-*/
-
-let tema = {id: 2224, naslov: 'sportska vest'};
-
-let komentari = [
-    {temaId: 2224, sadrzaj: 'odlican tekst'},
-    {temaId: 1113, sadrzaj: 'los tekst'},
-    {temaId: 2224, sadrzaj: 'ok'}
-];
-
-function komentariTeme(tema, komentari) {
-    return komentari.filter(function(komentar) {
-        return komentar.temaId === tema.id;
-    })
-}
-
-let stampajKomentar = komentariTeme(tema, komentari);
-console.log(stampajKomentar);
+console.log(vratiBrzinu);
+console.log('---------- Sledeci primer ----------');
