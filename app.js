@@ -1,28 +1,83 @@
-// const ul = document.body.firstElementChild.nextElementSibling;
-// const firstLi = ul.firstElementChild;
+/*
 
-// console.log(firstLi);
+- globalne proneljive -> VAR
+petlje
+...
 
-// const section = document.querySelector('section');
-// const button = document.querySelector('button');
+*/
 
-// // section.style.backgroundColor = 'green';
-// // section.className = '';
-// section.className = 'red-bg';
+var boje = ['red', 'green', 'blue'];
 
-// button.addEventListener('click', () => {
-//     // if (section.className === 'red-bg visible') {
-//     //     section.className = 'red-bg invisible';
-//     // } else {
-//     //     section.className = 'red-bg visible';
-//     // }
+for (const colors of boje ) {
+    console.log(colors);
+}
 
-//     section.classList.toggle('visible');
-//     section.classList.toggle('invisible');
-// })
+console.log('----------------------------------------');
 
-const list = document.querySelector('ul');
-const newLi = document.createElement('li')
+for (let i = 0; i<boje.length; i++) {
+    console.log(boje[i]);
+}
 
-list.appendChild(newLi);
-newLi.textContent = 'Item 4';
+console.log('----------------------------------------');
+
+boje.forEach(function(boja) {
+    console.log(boja);
+})
+
+console.log('----------------------------------------');
+
+/*
+
+brojevi
+
+*/
+
+var numbers = [1, 2, 3, 4, 5];
+var sum = 0;
+
+numbers.forEach(function(number) {
+    sum += number;
+})
+
+console.log(sum);
+
+console.log('----------------------------------------');
+
+/*
+
+metod push / niz
+
+*/
+
+var numbers = [1, 2, 3];
+var doubledNumbers = [];
+
+// svaki element niza mnozimo sa 2
+
+for (let i = 0; i<numbers.length; i++) {
+    doubledNumbers.push(numbers[i] * 2);
+}
+
+console.log(numbers);
+console.log(doubledNumbers);
+
+console.log('----------------------------------------');
+
+/*
+
+ECMA
+forEach helpes -> metod map() 
+- pravi novi niz
+- prolazi sve clanove niza pojedinacno
+- ne menja originalni niz
+- ne menaj dimenziju/strukturu niza koje nemaju nikakvu vrednost
+- unutar anonime funkcije, obavezan je return
+*/
+
+// anonimna funkcija
+
+var doubled = numbers.map(function(number) {
+    return number * 2;
+})
+
+console.log(doubled);
