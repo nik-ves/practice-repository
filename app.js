@@ -1,225 +1,109 @@
 /*
-
-find()
-Problem i kako radi? Cim naidje na prvi rezultat, izlazi iz petlje / provere
-find() radi samo sa jedinstvenim rezultatima pretrage
-
+- REFACTOR
+- Template string
 */
 
-let korisnici = [
-    {ime: 'Marko', id: 1},
-    {ime: 'Nikola'},
-    {ime: 'Ana'},
-    {ime: 'Marko', id: 4},
-    {ime: 'Stefan'}
-];
+function godinaJe() {
+    // const godina = new Date().getFullYear();
+    return `Godina je ${new Date().getFullYear()}`;
+}
 
-// var korisnik;
-// for(var i = 0; i<korisnici.length; i++) {
-//     if (korisnici[i].ime === 'Marko') {
-//         korisnik = korisnici[i];
-//     }
+console.log(godinaJe());
+console.log('---------- Sledeci primer ----------');
+
+/*
+arrow funkcije
+=>
+*/
+
+// const saberi = function(a, b) {
+//     return a + b;
 // }
 
-// let stampajKorisnika = korisnik;
-// console.log(stampajKorisnika);
+// let sabiranje = saberi(1, 2);
+// console.log(sabiranje);
 
-let stampajKorisnika = korisnici.find(function(i) {
-    return i.ime === 'Marko';
+const dodajBrojeve = (a, b) => {
+    return a + b;
+}
+
+let sabiranje = dodajBrojeve(1, 2);
+console.log(sabiranje);
+console.log('----------');
+
+/*
+Unutar funkcije mozemo da imamo
+- samo jedan izraz
+- vise izraza
+*/
+
+const dodajBrojeve1 = (a, b) => {
+    let suma = a + b; // prvi izraz
+    return suma; // drugi izraz
+}
+
+let sabiranje1 = dodajBrojeve1(2, 4);
+console.log(sabiranje1);
+console.log('----------');
+
+
+/*
+Slucaj kada imamo samo jedan izraz
+*/
+
+const dodajBrojeve2 = (a, b) => a + b;
+
+let sabiranje2 = dodajBrojeve1(4, 6);
+console.log(sabiranje2);
+console.log('----------');
+
+/*
+Slucaj kada IMAMO argumente
+*/
+
+const dupliraj = broj => 2 * broj;
+console.log(dupliraj(5));
+console.log('----------');
+
+/*
+Slucaj kada NEMAMO argumente
+*/
+
+const dupliraj1 = () => {
+    return 2;
+}
+
+console.log(dupliraj1());
+console.log('---------- Sledeci primer ----------');
+
+/*
+arrow funkcija
+- koristeci helpere
+- proveravamo niz brojeva
+- dupliranje brojeva
+*/
+
+const brojevi = [1, 2, 3, 4, 5];
+
+let duplirani = brojevi.map(function(broj) {
+    return 2 * broj;
 })
+console.log(`MAP = ${duplirani}`);
+console.log('----------');
 
-console.log(stampajKorisnika);
+/*
+pojednostavljeni map()
+- arrow funkcija
+*/
+
+let duplirani1 = brojevi.map(broj => 2 * broj);
+
+console.log(`Arrow map = ${duplirani1}`);
 console.log('---------- Sledeci primer ----------');
 
 /*
-
-find()
-objekat ima osobinu this.model = model 
-
+- pravimo tim za projekte
+- prikazujemo clanove tima
+- problemi specificnih helpera
+(objekti, helperi, refactor, template...)
 */
-
-function Auto (model) {
-    this.model = model;
-}
-
-// Inicijalizujemo / pravimo objekte
-let automobili = [
-    new Auto ('Audi'),
-    new Auto ('BMW'),
-    new Auto ('Mercedes'),
-    new Auto ('Yugo')
-];
-
-let stampajAutomobile = automobili.find(function(i) {
-    return i.model === 'Yugo';
-})
-
-console.log(stampajAutomobile);
-console.log('---------- Sledeci primer ----------');
-
-let cpu = [
-    {proizvodjac: 'Intel', brzina: 3.4},
-    {proizvodjac: 'AMD', brzina: 1.7},
-    {proizvodjac: 'nVidia', brzina: 2.4},
-];
-
-/*
-
-- svi procesori mogu da pokrenu racunar => true 
-- samo neki procesuri mogu da pokrenu racunar => false
-
-*/
-
-let sviProc = true;
-var samoNekiProc = false;
-
-for (let i = 0; i<cpu.length; i++) {
-    let proc = cpu[i];
-
-    if(proc.brzina < 2.8) {
-        sviProc = false;
-    } else {
-        samoNekiProc = true;
-    }
-}
-
-console.log(sviProc);
-console.log(samoNekiProc);
-console.log('---------- Sledeci primer ----------');
-
-/*
-
-every()
-- ocekuje true ili false i svi uslovi moraju da budu ispunjeni
-
-*/
-
-let vratiBrzinu = cpu.every(function(procesor) {
-    return procesor.brzina < 4;
-})
-
-console.log(vratiBrzinu);
-console.log('---------- Sledeci primer ----------');
-
-/*
-
-some()
-- pravilo: samo ukoliko su svi uslovi false, vraca false
-- ukolko je bar jedan uslov true -> vraca true
-
-*/
-
-vratiBrzinu2 = cpu.some(function(procesor) {
-    return procesor.brzina > 4;
-})
-
-console.log(vratiBrzinu2);
-console.log('---------- Sledeci primer ----------');
-
-/*
-
-novi primer
-
-*/
-
-let imena = ['Ana', 'Nikola', 'Petar'];
-
-// vraca false
-let stampajImena = imena.every(function(ime) {
-    return ime.length > 3;
-});
-console.log(stampajImena);
-
-// vraca true
-let stampajImena2 = imena.some(function(ime) {
-    return ime.length > 3;
-});
-console.log(stampajImena2);
-
-console.log('---------- Sledeci primer ----------');
-
-/*
-
-prototype / prototip
-
-*/
-
-function poljeUnos(vrednost) {
-    this.vrednost = vrednost;
-}
-
-let korisnickoIme = new poljeUnos('');
-let sifra = new poljeUnos('hardkodovana');
-
-// proveravamo da li je svako polje za unos validno
-poljeUnos.prototype.validate = function() {
-    return this.vrednost.length > 0;
-}
-
-// ukoliko imamo nesto uneseno u objekat, kao rezultat dobijamo true
-// u ovom slucaju je korisnicko ime prazan string pa ce rezultat biti false
-console.log(korisnickoIme.validate());
-
-// vraca true jer je uslov ispunjen
-console.log(sifra.validate());
-
-// vraca true, samo ukoliko su oba uslova ispunjena
-console.log(korisnickoIme.validate() && sifra.validate());
-console.log('--------------------');
-
-let datumRodjenja = new poljeUnos('01/01/1991');
-let polja = [korisnickoIme, sifra, datumRodjenja];
-
-let validacijaForme = polja.every(function(polje) {
-    return polje.validate();
-});
-console.log(validacijaForme);
-console.log('---------- Sledeci primer ----------');
-
-/*
-
-brojevi / jedna vrednost
-
-*/
-
-let nekiBrojevi = [3, 6, 19];
-let zbir = 0;
-
-for (const broj of nekiBrojevi) {
-    zbir += broj;
-}
-console.log(zbir);
-console.log('---------- Sledeci primer ----------');
-
-/*
-
-reduce()
-- ima inicijalizaciju vrednosti -> npr 0
-    * kao drugi parametar anonimne funkcije
-
-*/
-
-let stampajBrojeve = nekiBrojevi.reduce(function(zbir, broj){
-    return zbir + broj;
-}, 0);
-console.log('reduce: ', stampajBrojeve);
-console.log('---------- Sledeci primer ----------');
-
-/*
-
-novi primer
-
-*/
-
-let nekeBoje = [
-    {boja: 'crvena'},
-    {boja: 'zuta'},
-    {boja: 'plava'},
-];
-
-let b = nekeBoje.reduce(function(noveBoje, nekeBoje) {
-    noveBoje.push(nekeBoje.boja);
-    return noveBoje;
-}, []);
-console.log(b);
-console.log('---------- Sledeci primer ----------');
