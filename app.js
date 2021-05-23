@@ -85,3 +85,40 @@ const [{drzava}] = proizvodjaciD;
 console.log(drzava);
 console.log('---------- Sledeci primer ----------');
 
+/*
+- dekonstrukcija objekata i niza
+*/
+
+const drzave = {
+    drzave: ['Srbija', 'Nemacka', 'Japan']
+}
+
+const {drzave: [drzaveD, drzaveN, drzaveJ]} = drzave;
+console.log(drzaveD);
+console.log(drzaveN);
+console.log(drzaveJ);
+console.log('---------- Sledeci primer ----------');
+
+/*
+- klasa / konstruktor
+*/
+
+class Auto {
+    // opciono: konstruktor i parametri konstruktora
+    // constructor(parametri) {
+    //     this.nesto = parametri.nesto
+    // }
+
+    constructor({model}) {
+        this.model = model;
+    }
+
+    vozim() {
+        return 'Vozim auto';
+    }
+}
+
+const noviAuto = new Auto({model: 'jugo'});
+console.log(noviAuto);
+console.log(noviAuto.vozim());
+console.log('---------- Sledeci primer ----------');
