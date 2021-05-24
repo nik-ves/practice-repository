@@ -9,6 +9,8 @@ import { CurrentTrainingComponent } from './training/current-training/current-tr
 import { PreviousTrainingComponent } from './training/previous-training/previous-training.component';
 import { TrainingComponent } from './training/training.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { MaterialModule } from './material.module';
+import { RoutingModule } from './routing.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
     WelcomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MaterialModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

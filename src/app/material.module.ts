@@ -8,9 +8,11 @@ registrovacemo komponente https://material.angular.io/
 import { NgModule } from "@angular/core";
 import {MatButtonModule} from '@angular/material/button';
 
-@NgModule ({
-    imports: [MatButtonModule],
+
+
+@NgModule({
+    imports: [MatButtonModule], 
     exports: [MatButtonModule]
 })
 
-export class MaterialModule {}
+export class MaterialModule {} // Kada se klasa exportuje znaci da je postala public i da mozemo da je koristimo
