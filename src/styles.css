@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+/* 
+Predefinisane teme / izgled:
+https://material.angular.io/guide/theming#using-a-pre-built-theme
+*/
+
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
