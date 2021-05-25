@@ -12,6 +12,7 @@ import { TrainingComponent } from './training/training.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { MaterialModule } from './material.module';
 import { RoutingModule } from './routing.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { RoutingModule } from './routing.module';
     BrowserModule,
     MaterialModule,
     RoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

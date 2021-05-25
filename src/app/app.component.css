@@ -1,0 +1,28 @@
+/* #container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#element1 {
+    background-color: blue;
+}
+
+#element2 {
+    background-color: red;
+}
+
+#element3 {
+    background-color: green;
+}
+
+.element {
+    width: 350px;
+    height: 350px;
+} */
+
+form {
+    height: 600px;
+    border: 1px solid black;
+}
