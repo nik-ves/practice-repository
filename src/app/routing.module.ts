@@ -12,7 +12,7 @@ import { TrainingComponent } from "./training/training.component";
 import { WelcomeComponent } from "./welcome/welcome.component";
 
 const rutiranje: Routes = [
-    {path : '', component: WelcomeComponent}, // Welcome componenta ce se prva prikazati
+    {path : '', component: WelcomeComponent}, // Welcome componenta ce se prva prikazati zbog praznog stringa ('')
     {path : 'training', component: TrainingComponent},
     {path : 'login', component: LoginComponent},
     {path : 'signup', component: SignupComponent}
