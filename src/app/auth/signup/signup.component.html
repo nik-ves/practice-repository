@@ -8,9 +8,20 @@
 
         <mat-form-field hintLabel="Unesite minimum 8 karaktera">
             <input type="password" matInput placeholder="Sifra" ngModel name="password" required minlength="8" #passInput="ngModel"> 
-            <mat-hint align="end">{{ passInput.value?.length }} / 8</mat-hint>
+            <mat-hint align="end">{{ passInput.value?.length }} / 8</mat-hint>  <!-- cela ova linija proverava da li je sifra koja je uneta duza od 8 karaktera -->
         </mat-form-field>
 
-        <button type="submit" mat-raised-button color="warn">Potvrdi</button>
+        <mat-form-field>
+            <input matInput placeholder="Vas datum rodjenja" [matDatepicker]="picker" ngModel name="birthDate" required>
+
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-checkbox color="warn" ngModel name="acceptance" required>
+            Prihvatam uslove koriscenja
+        </mat-checkbox>
+
+        <button type="submit" [disabled]="f.invalid" mat-raised-button color="warn">Potvrdi</button>
     </form>
 </section>

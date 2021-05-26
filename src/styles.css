@@ -4,3 +4,13 @@ https://material.angular.io/guide/theming#using-a-pre-built-theme
 */
 
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+mat-sidenav-container,
+mad-sidenav-content,
+mad-sidenav {
+    height: 100%;
+}
+
+mat-sidenav {
+    width: 200px;
+}

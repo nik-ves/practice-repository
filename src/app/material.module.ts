@@ -10,10 +10,34 @@ import { MatButtonModule } from '@angular/material/button'; // Button
 import { MatIconModule } from '@angular/material/icon'; // Icons 
 import { MatFormFieldModule } from '@angular/material/form-field'; // Form
 import { MatInputModule } from '@angular/material/input'; // Input
+import { MatDatepickerModule } from '@angular/material/datepicker'; // Datepicker
+import { MatNativeDateModule } from '@angular/material/core'; // Potrebno za brojeve iz datepickera, ne moze jedno bez drugog
+import { MatCheckboxModule } from '@angular/material/checkbox'; // Checkbox
+import { MatSidenavModule } from '@angular/material/sidenav'; // Sidenav
+import { MatToolbarModule } from '@angular/material/toolbar'; // Toolbar
 
 @NgModule({
-    imports: [MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule], 
-    exports: [MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule]
+  imports: [
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatSidenavModule,
+    MatToolbarModule,
+  ],
+  exports: [
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatSidenavModule,
+    MatToolbarModule,
+  ],
 })
-
 export class MaterialModule {} // Kada se klasa exportuje znaci da je postala public i da mozemo da je koristimo
