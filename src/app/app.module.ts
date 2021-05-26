@@ -13,6 +13,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { MaterialModule } from './material.module';
 import { RoutingModule } from './routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MaterialModule,
     RoutingModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
