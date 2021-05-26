@@ -22,7 +22,30 @@
     height: 350px;
 } */
 
+mat-sidenav-container,
+mad-sidenav-content,
+mad-sidenav {
+    height: 100%;
+}
+
+mat-sidenav {
+    width: 200px;
+}
+
 form {
     height: 600px;
     border: 1px solid black;
+}
+
+a {
+    color: #f5f5f5;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+}
+
+a:active {
+    color: #fff;
 }

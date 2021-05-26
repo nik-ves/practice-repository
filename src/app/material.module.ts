@@ -15,6 +15,9 @@ import { MatNativeDateModule } from '@angular/material/core'; // Potrebno za bro
 import { MatCheckboxModule } from '@angular/material/checkbox'; // Checkbox
 import { MatSidenavModule } from '@angular/material/sidenav'; // Sidenav
 import { MatToolbarModule } from '@angular/material/toolbar'; // Toolbar
+import { MatListModule } from '@angular/material/list'; // Lista za sidenav
+import { MatTabsModule } from '@angular/material/tabs'; // Tabovi
+
 
 @NgModule({
   imports: [
@@ -27,6 +30,8 @@ import { MatToolbarModule } from '@angular/material/toolbar'; // Toolbar
     MatCheckboxModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatListModule,
+    MatTabsModule
   ],
   exports: [
     MatButtonModule,
@@ -38,6 +43,8 @@ import { MatToolbarModule } from '@angular/material/toolbar'; // Toolbar
     MatCheckboxModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatListModule,
+    MatTabsModule
   ],
 })
 export class MaterialModule {} // Kada se klasa exportuje znaci da je postala public i da mozemo da je koristimo
