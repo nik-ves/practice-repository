@@ -17,7 +17,8 @@ import { MatSidenavModule } from '@angular/material/sidenav'; // Sidenav
 import { MatToolbarModule } from '@angular/material/toolbar'; // Toolbar
 import { MatListModule } from '@angular/material/list'; // Lista za sidenav
 import { MatTabsModule } from '@angular/material/tabs'; // Tabovi
-
+import { MatCardModule } from '@angular/material/card'; // Cards
+import { MatSelectModule } from '@angular/material/select'; // Padajuci meni
 
 @NgModule({
   imports: [
@@ -31,7 +32,9 @@ import { MatTabsModule } from '@angular/material/tabs'; // Tabovi
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule,
+    MatSelectModule
   ],
   exports: [
     MatButtonModule,
@@ -44,7 +47,9 @@ import { MatTabsModule } from '@angular/material/tabs'; // Tabovi
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule,
+    MatSelectModule
   ],
 })
 export class MaterialModule {} // Kada se klasa exportuje znaci da je postala public i da mozemo da je koristimo
