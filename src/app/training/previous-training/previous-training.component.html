@@ -1,3 +1,11 @@
+<div fxLayoutAlign="center center">
+    <mat-form-field>
+        <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter treninga">
+    </mat-form-field>
+</div>
+
+<!-- matInput je direktiva, () - se poziva neki metod  -->
+
 <mat-table [dataSource]="exerciseSource" matSort>
     <ng-container matColumnDef="date">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Datum</mat-header-cell>
@@ -32,3 +40,11 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
+
+<!-- 
+    Items per page
+ -->
+
+ <mat-paginator [pageSize]="1" [pageSizeOptions]="[1, 3, 5, 10]">
+
+ </mat-paginator>

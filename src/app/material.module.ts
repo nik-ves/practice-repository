@@ -1,8 +1,6 @@
 /*
 U okviru ovog modula (material.module.ts)
 registrovacemo komponente https://material.angular.io/
-
-- dugme: https://material.angular.io/components/button/overview
 */
 
 import { NgModule } from "@angular/core";
@@ -22,7 +20,7 @@ import { MatSelectModule } from '@angular/material/select'; // Padajuci meni
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; // Spinner
 import { MatTableModule } from '@angular/material/table'; // Tabela
 import { MatSortModule } from '@angular/material/sort'; // Sortiranje u hederu tabele
-
+import { MatPaginatorModule } from '@angular/material/paginator'; // Broj predmeta po stranici
 
 @NgModule({
   imports: [
@@ -41,7 +39,8 @@ import { MatSortModule } from '@angular/material/sort'; // Sortiranje u hederu t
     MatSelectModule,
     MatProgressSpinnerModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatPaginatorModule
   ],
   exports: [
     MatButtonModule,
@@ -59,7 +58,8 @@ import { MatSortModule } from '@angular/material/sort'; // Sortiranje u hederu t
     MatSelectModule,
     MatProgressSpinnerModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatPaginatorModule
   ],
 })
 export class MaterialModule {} // Kada se klasa exportuje znaci da je postala public i da mozemo da je koristimo
