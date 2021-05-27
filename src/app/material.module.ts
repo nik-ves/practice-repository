@@ -19,6 +19,8 @@ import { MatListModule } from '@angular/material/list'; // Lista za sidenav
 import { MatTabsModule } from '@angular/material/tabs'; // Tabovi
 import { MatCardModule } from '@angular/material/card'; // Cards
 import { MatSelectModule } from '@angular/material/select'; // Padajuci meni
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; // Spinner
+
 
 @NgModule({
   imports: [
@@ -34,7 +36,8 @@ import { MatSelectModule } from '@angular/material/select'; // Padajuci meni
     MatListModule,
     MatTabsModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatButtonModule,
@@ -49,7 +52,8 @@ import { MatSelectModule } from '@angular/material/select'; // Padajuci meni
     MatListModule,
     MatTabsModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
 })
 export class MaterialModule {} // Kada se klasa exportuje znaci da je postala public i da mozemo da je koristimo

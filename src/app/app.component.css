@@ -42,10 +42,6 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    color: #fff;
-}
-
 a:active {
     color: #fff;
 }
