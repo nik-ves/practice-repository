@@ -1,1 +1,34 @@
-<p>previous-training works!</p>
+<mat-table [dataSource]="exerciseSource" matSort>
+    <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Datum</mat-header-cell>
+
+        <mat-cell *matCellDef='let element'>{{ element.date | date }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Ime</mat-header-cell>
+
+        <mat-cell *matCellDef='let element'>{{ element.name }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="duration">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Trajanje</mat-header-cell>
+
+        <mat-cell *matCellDef='let element'>{{ element.duration | number }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="calories">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Kalorije</mat-header-cell>
+
+        <mat-cell *matCellDef='let element'>{{ element.calories | number }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+
+        <mat-cell *matCellDef='let element'>{{ element.status }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

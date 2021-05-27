@@ -14,6 +14,7 @@ import { MaterialModule } from './material.module';
 import { RoutingModule } from './routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { TrainingService } from './training/training.service';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { FormsModule } from '@angular/forms';
     FlexLayoutModule,
     FormsModule
   ],
-  providers: [],
+  providers: [TrainingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
