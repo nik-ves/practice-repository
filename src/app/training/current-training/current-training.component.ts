@@ -26,15 +26,23 @@ export class CurrentTrainingComponent implements OnInit {
 
   onStop() {
     clearInterval(this.timer);
-    this.dialog.open(StopTrainingComponent, {
+    const dialogRef = this.dialog.open(StopTrainingComponent, {
       data: {
         progress: this.progress,
       }
     });
-  }
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        clearInterval(this.timer)
+      } else {
+        this.onResume()
+      }
+    })
+  } 
 
   onResume() {
-    this.timer = setInterval(() => { 
+    this.timer = setInterval(() => { // Autoinkrementiranje progress bara na 1000ms bez ogranicenja dokle da ide
       this.progress += 5;
 
       if (this.progress >= 100) {
