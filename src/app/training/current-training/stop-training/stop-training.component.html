@@ -1,0 +1,20 @@
+<!-- 
+    Naslov dijaloga: mat-dialog-title
+    Sadrzaj dijaloga: mat-dialog-conent
+    Akcija dijaloga: mat-dialog-actions
+ -->
+
+ <!-- Kako se dinamicki prikazivanje vrednosti promenljivih : string interpolacija -->
+
+ <section>
+    <h1 mat-dialog-title>Zaustavi trening</h1>
+
+    <mat-dialog-content>Da li ste sigurni?</mat-dialog-content>
+
+    <p>Trenutni status treninga je: {{ progress }}</p>
+
+    <mat-dialog-actions>
+        <button mat-button [mat-dialog-close]="true">Da</button>
+        <button mat-button [mat-dialog-close]="false">Ne</button>
+    </mat-dialog-actions>
+ </section>

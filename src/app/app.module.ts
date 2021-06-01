@@ -15,6 +15,7 @@ import { RoutingModule } from './routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { TrainingService } from './training/training.service';
+import { StopTrainingComponent } from './training/current-training/stop-training/stop-training.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { TrainingService } from './training/training.service';
     CurrentTrainingComponent,
     PreviousTrainingComponent,
     TrainingComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    StopTrainingComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { TrainingService } from './training/training.service';
     FormsModule
   ],
   providers: [TrainingService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [StopTrainingComponent]
 })
 export class AppModule { }

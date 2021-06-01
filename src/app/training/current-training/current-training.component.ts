@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { StopTrainingComponent } from '../current-training/stop-training/stop-training.component';
 
 @Component({
   selector: 'app-current-training',
@@ -10,7 +12,7 @@ export class CurrentTrainingComponent implements OnInit {
   progress = 0;
   timer: any; // Defaultna vrednost timer je any, tako da je u ovom slucaju moglo da se napise samo timer;
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.timer = setInterval(() => { // Autoinkrementiranje progress bara na 1000ms bez ogranicenja dokle da ide
@@ -19,11 +21,27 @@ export class CurrentTrainingComponent implements OnInit {
       if (this.progress >= 100) {
         clearInterval(this.timer);
       }
-    }, 500)
+    }, 1000);
   }
 
   onStop() {
     clearInterval(this.timer);
+    this.dialog.open(StopTrainingComponent, {
+      data: {
+        progress: this.progress,
+      }
+    });
   }
+
+  onResume() {
+    this.timer = setInterval(() => { 
+      this.progress += 5;
+
+      if (this.progress >= 100) {
+        clearInterval(this.timer);
+      }
+    }, 1000);
+  }
+
 
 }

@@ -21,6 +21,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; /
 import { MatTableModule } from '@angular/material/table'; // Tabela
 import { MatSortModule } from '@angular/material/sort'; // Sortiranje u hederu tabele
 import { MatPaginatorModule } from '@angular/material/paginator'; // Broj predmeta po stranici
+import { MatDialogModule } from '@angular/material/dialog'; // Dijalog
+
 
 @NgModule({
   imports: [
@@ -40,7 +42,8 @@ import { MatPaginatorModule } from '@angular/material/paginator'; // Broj predme
     MatProgressSpinnerModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
@@ -59,7 +62,8 @@ import { MatPaginatorModule } from '@angular/material/paginator'; // Broj predme
     MatProgressSpinnerModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ],
 })
 export class MaterialModule {} // Kada se klasa exportuje znaci da je postala public i da mozemo da je koristimo

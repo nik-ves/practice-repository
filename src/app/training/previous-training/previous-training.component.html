@@ -1,6 +1,8 @@
+<!-- Search polje -->
 <div fxLayoutAlign="center center">
-    <mat-form-field>
-        <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter treninga">
+    <mat-form-field fxFlex="30%">
+        <input matInput type="text" (keyup)="doFilter($any($event.target).value)"
+        placeholder="Filter treninga">
     </mat-form-field>
 </div>
 
