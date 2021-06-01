@@ -8,14 +8,14 @@ export interface User {
     address?: string;
 }
 
-@Injectable
+@Injectable()
 export class UserService {
 
     currentUser: User = UserService.dummyUserList[0];
 
     static dummyUserList: Array<User> = [];
 
-    getuserById(id: number): User {
+    getUserById(id: number): User {
         var foundUser: User;
         UserService.dummyUserList.forEach(user => {
             if (user.id == id) {
