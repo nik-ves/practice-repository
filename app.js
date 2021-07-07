@@ -20,3 +20,8 @@ const newLi = document.createElement('li');
 newLi.textContent = 'Item 4';
 
 secondLi.insertAdjacentElement('afterend', newLi);
+
+//=======================================================================
+
+const newLi2 = newLi.cloneNode(true);
+list.append(newli, newLi2);
