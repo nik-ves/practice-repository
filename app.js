@@ -13,15 +13,23 @@
 
 //=======================================================================
 
-const list = document.querySelector('ul');
-const secondLi = list.children[1];
+// const list = document.querySelector('ul');
+// const secondLi = list.children[1];
 
-const newLi = document.createElement('li');
-newLi.textContent = 'Item 4';
+// const newLi = document.createElement('li');
+// newLi.textContent = 'Item 4';
 
-secondLi.insertAdjacentElement('afterend', newLi);
+// secondLi.insertAdjacentElement('afterend', newLi);
+
+// //=======================================================================
+
+// const newLi2 = newLi.cloneNode(true);
+// list.append(newli, newLi2);v
 
 //=======================================================================
 
-const newLi2 = newLi.cloneNode(true);
-list.append(newli, newLi2);
+const list = document.querySelector('ul');
+
+// list.remove();
+
+list.parentElement.removeChild(list);
