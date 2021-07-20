@@ -7,6 +7,7 @@ const backdrop = document.getElementById('backdrop');
 const cancelAddMovieButton = addMovieModal.querySelector('.btn--passive');
 const confirmAddMovieButton = cancelAddMovieButton.nextElementSibling;
 const userInputs = addMovieModal.querySelectorAll('input'); // Selecting all inputs, in this case we have 3 input fields
+const movies = [];
 
 const toggleMovieModal = () => { // function() {}
     addMovieModal.classList.toggle('visible'); // toggle checks if there is visible class already in the div. If there isnt it will be added, and if there is it will be removed
@@ -23,7 +24,14 @@ const backdropClickHandler = () => {
 
 const cancelAddMovieHandler = () => {
     toggleMovieModal();
+    clearMovieInputs();
 };
+
+const clearMovieInputs = () => {
+    for (const usrInput of userInputs) {
+        usrInput.value = '';
+    }
+}
 
 const addMovieHandler = () => {
     const titleValue = userInputs[0].value; // First input at index 0 is title
@@ -39,6 +47,17 @@ const addMovieHandler = () => {
             alert('Please enter valid values (rating between 1 and 5).');
             return;
     }
+
+    const newMovie = {
+        title: titleValue,
+        image: imageUrlValue,
+        rating: ratingValue
+    };
+
+    movies.push(newMovie);
+    console.log(movies);
+    toggleMovieModal();
+    clearMovieInputs();
 }
 
 startAddMovieButton.addEventListener('click', toggleMovieModal);
