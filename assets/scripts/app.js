@@ -12,13 +12,22 @@ const deleteMovieModal = document.getElementById('delete-modal');
 
 const movies = [];
 
+const toggleBackdrop = () => {
+    backdrop.classList.toggle('visible');
+};
+
 const updateUI = () => {
     if (movies.length === 0) {
         entryTextSection.style.display = 'block';
     } else {
         entryTextSection.style.display = 'none';
     }
-}
+};
+
+const closeMovieDeletionModal = () => {
+    toggleBackdrop();
+    deleteMovieModal.classList.remove('visible');
+};
 
 const deleteMovieHandler = (movieId) => {
     let movieIndex = 0;
@@ -33,22 +42,25 @@ const deleteMovieHandler = (movieId) => {
     movies.splice(movieIndex, 1);
     const listRoot = document.getElementById('movie-list');
     listRoot.children[movieIndex].remove();
+    closeMovieDeletionModal();
+    updateUI();
 };
-
-const closeMovieDeletionModal = () => {
-    toggleBackdrop();
-    deleteMovieModal.classList.remove('visible');
-}
 
 const startDeleteMovieHandler = (movieId) => {
     deleteMovieModal.classList.add('visible');
     toggleBackdrop();
 
     const cancelDeletionButton = deleteMovieModal.querySelector('.btn--passive');
-    const confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
+    let confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
+
+    confirmDeletionButton.replaceWith(confirmDeletionButton.cloneNode(true));
+
+    confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
+
+    cancelDeletionButton.removeEventListener('click', closeMovieDeletionModal);
 
     cancelDeletionButton.addEventListener('click', closeMovieDeletionModal);
-    confirmDeletionButton/addEventListener('click', deleteMovieHandler.bind(null. movieId));
+    confirmDeletionButton.addEventListener('click', deleteMovieHandler.bind(null, movieId));
     // deleteMovie(movieId);
 };
 
@@ -71,15 +83,11 @@ const renderNewMovieElement = (id, title, imageUrl, rating) => {
     newMovieElement.addEventListener('click', startDeleteMovieHandler.bind(null, id));
     const listRoot = document.getElementById('movie-list');
     listRoot.append(newMovieElement);
-}
+};
 
 const showMovieModal = () => { // function() {}
     addMovieModal.classList.add('visible'); // toggle checks if there is visible class already in the div. If there isnt it will be added, and if there is it will be removed
     toggleBackdrop();
-};
-
-const toggleBackdrop = () => {
-    backdrop.classList.toggle('visible');
 };
 
 const closeMovieModal = () => {
@@ -89,10 +97,12 @@ const closeMovieModal = () => {
 const backdropClickHandler = () => {
     closeMovieModal();
     closeMovieDeletionModal();
+    clearMovieInputs();
 };
 
 const cancelAddMovieHandler = () => {
     closeMovieModal();
+    toggleBackdrop();
     clearMovieInputs();
 };
 
