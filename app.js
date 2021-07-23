@@ -42,7 +42,14 @@ console.log(hobbies);
 
 // Manipulating items in different places in an array
 hobbies[1] = 'Coding';
-hobbies[5] = 'Reading';
+// hobbies[5] = 'Reading';
 
 console.log(hobbies);
 
+// Adding with splice
+hobbies.splice(1, 0, 'Good food', 'Baking'); // first arguments is where it should star, second is how many should it delete, and third what to add
+console.log(hobbies);
+
+// Removing with splice
+hobbies.splice(0, 2); // if you enter only one argument, it will delete all items past that numbers index
+console.log(hobbies);
