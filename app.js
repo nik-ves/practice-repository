@@ -14,3 +14,16 @@ console.log(moreNumbers);
 const listItems = document.querySelectorAll('li');
 const ArrayListItem = Array.from(listItems);
 console.log(ArrayListItem);
+
+const hobbies = ['Cooking', 'Sports'];
+const personalData = [23, 'Nikola', {moreDetail: []}];
+
+const analyticsData = [[1, 1.6], [-5.4, 2.1]];
+
+for (const data of analyticsData) {
+    for (const dataPoints of data) {
+        console.log(dataPoints);
+    }
+}
+
+console.log(personalData[1]);
