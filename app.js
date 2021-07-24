@@ -55,7 +55,8 @@
 // console.log(hobbies);
 
 const testResults = [1, 5.3, 1.5, 10.99, -5, 10];
-const storedResults = testResults.slice(0, 2); // you can specify start and end number of an array for selecting range and excludes them from original array
+// const storedResults = testResults.slice(0, 2); // you can specify start and end number of an array for selecting range and excludes them from original array
+const storedResults = testResults.concat([3.99, 2]); // add elements at the end of an array. it takes an array 
 
 testResults.push(5.91);
 
