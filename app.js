@@ -68,3 +68,19 @@ console.log(testResults.indexOf(1.5));
 
 const presonData = [{name: 'Nikola'}, {name: 'Test'}];
 console.log(testResults.indexOf({name: 'Test'})); // this will not work, console will return -1 and that indicates that it did not find the searched result
+
+const test = presonData.find((person, idx, persons) => {
+    return person.name === 'Test';
+}); 
+
+console.log(test);
+// find takes function as an argument and that function takes up 3 arguments
+// first argument will always be single object of that array
+// second one is index of that single element
+// third argument will be the full array
+
+const nikolaIndex = presonData.findIndex((person, idx, persons) => {
+    return person.name === 'Nikola';
+}); 
+
+console.log(nikolaIndex);
