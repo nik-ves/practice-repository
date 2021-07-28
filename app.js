@@ -149,6 +149,8 @@
 
 // console.log(sum);
 
+const prices = [10.99, 5.99, 3.99, 6.59];
+
 const data = 'new york;10.99;2000';
 
 const transformedData = data.split(';'); // argument is a seperator 
@@ -157,3 +159,17 @@ console.log(transformedData);
 const nameFragments = ['Nikola', 'Veselinovic'];
 const name = nameFragments.join(' '); // argument is a seperator
 console.log(name);
+
+const copiedNameFragment = [...nameFragments];
+nameFragments.push('Mr');
+console.log(nameFragments, copiedNameFragment);
+
+console.log(Math.min(...prices));
+
+const persons = [{name: 'Nikola', age: 23}, {name: 'Marko', age: 26}];
+const copiedPersons = [...persons.map(person => ({name: person.name, age: person.age}) )];
+
+persons.push({name: 'Stefan', age: 21});
+persons[0].age = 15;
+
+console.log(persons, copiedPersons);
