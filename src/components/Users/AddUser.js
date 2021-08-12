@@ -18,14 +18,14 @@ const AddUser = props => {
     event.preventDefault(); // preventing reloading a page when submiting
 
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) { // Checks if entered field is empty field
-      return; // return finish the function
+      return; // return finishes the function
     }
 
-    if (+enteredAge < 1) { // plus converts enteredAge to number since its a string
+    if (+enteredAge < 1) { // + converts enteredAge to number since its a string
       return;
     }
 
-    console.log(enteredUsername, enteredAge); // Loggin user input
+    console.log(enteredUsername, enteredAge); // Loggin user input and will only log if user entered valid inputs
     resetUserInputs();
   };
 
