@@ -25,7 +25,8 @@ const AddUser = props => {
       return;
     }
 
-    console.log(enteredUsername, enteredAge); // Loggin user input and will only log if user entered valid inputs
+    // console.log(enteredUsername, enteredAge); // Loggin user input and will only log if user entered valid inputs
+    props.onAddUser(enteredUsername, enteredAge);
     resetUserInputs();
   };
 
