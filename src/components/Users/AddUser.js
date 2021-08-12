@@ -9,6 +9,7 @@ import classes from "./AddUser.module.css";
 const AddUser = props => {
   const [enteredUsername, setEnteredUsername] = useState('');
   const [enteredAge, setEnteredAge] = useState('');
+  const [error, setError] = useState();
 
   const resetUserInputs = () => {
     setEnteredUsername(''); // Reseting form username input
@@ -19,10 +20,20 @@ const AddUser = props => {
     event.preventDefault(); // preventing reloading a page when submiting
 
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) { // Checks if entered field is empty field
+      setError({
+        title: 'Invalid input',
+        message: 'Please enter a valid name and age (non-empty values).'
+      });
+
       return; // return finishes the function
     }
 
     if (+enteredAge < 1) { // + converts enteredAge to number since its a string
+      setError({
+        title: 'Invalid age',
+        message: 'Please enter a valid age (> 0).'
+      });
+      
       return;
     }
 
@@ -39,10 +50,14 @@ const AddUser = props => {
     setEnteredAge(event.target.value); // Getting age value
   };
 
+  const errorHandler = () => { // null is treated as faulsy value
+    setError(null);
+  };
+
   return (
     <div>
-      <ErrorModal title="An error occured!" message="Something went wrong!"/>
-      
+      {error && <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler}/>} 
+
       <Card className={classes.input}>
         <form onSubmit={addUserHandler}>
           <label htmlFor="username">Username</label>
