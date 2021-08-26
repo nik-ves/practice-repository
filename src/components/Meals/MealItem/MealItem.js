@@ -1,6 +1,7 @@
 import React from "react";
 
 import classes from "./MealItem.module.css";
+import MealItemForm from "./MealItemForm";
 
 const MealItem = (props) => {
   const price = `$${props.price.toFixed(2)}`; // toFixed(2) makes sure to always show 2 decimal places
@@ -13,9 +14,7 @@ const MealItem = (props) => {
         <div className={classes.price}>{price}</div>
       </div>
 
-      <div>
-        
-      </div>
+      <MealItemForm id={props.id} />
     </li>
   );
 };
