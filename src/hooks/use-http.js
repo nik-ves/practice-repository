@@ -11,9 +11,9 @@ const useHttp = (requestConfig, applyData) => {
       const response = await fetch(
         // "https://custom-hooks-cd7ae-default-rtdb.europe-west1.firebasedatabase.app/tasks.json"
         requestConfig.url, {
-          method: requestConfig.method,
-          header: requestConfig.headers,
-          body: JSON.stringify(requestConfig.body)
+          method: requestConfig.method ? requestConfig.method : 'GET',
+          header: requestConfig.headers ? requestConfig.headers : {},
+          body: requestConfig.body ? JSON.stringify(requestConfig.body) : null
         }
       );
 
