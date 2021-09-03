@@ -8,12 +8,22 @@ const SimpleInput = (props) => {
 
   useEffect(() => {
     if (enteredNameIsValid) {
-      console.log('User input is valid!')
+      console.log("User input is valid!");
     }
   }, [enteredNameIsValid]);
 
   const nameInputChangeHanlder = (event) => {
     setEnteredName(event.target.value);
+  };
+
+  const nameInputBlurHandler = (event) => {
+    setEnteredNameTouched(true);
+
+    // checking if input is empty
+    if (enteredName.trim() === "") {
+      setEnteredNameIsValid(false);
+      return; // return cancels code executions from below
+    }
   };
 
   const formSubmissionHandler = (event) => {
@@ -54,6 +64,7 @@ const SimpleInput = (props) => {
           type="text"
           id="name"
           onChange={nameInputChangeHanlder}
+          onBlur={nameInputBlurHandler}
           value={enteredName}
         />
         {nameInputIsInvalid && (
