@@ -1,16 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 const SimpleInput = (props) => {
-  const nameInputRef = useRef();
   const [enteredName, setEnteredName] = useState("");
-  const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
 
-  useEffect(() => {
-    if (enteredNameIsValid) {
-      console.log("User input is valid!");
-    }
-  }, [enteredNameIsValid]);
+  const enteredNameIsValid = enteredName.trim() !== '';
+  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
 
   const nameInputChangeHanlder = (event) => {
     setEnteredName(event.target.value);
@@ -18,36 +13,23 @@ const SimpleInput = (props) => {
 
   const nameInputBlurHandler = (event) => {
     setEnteredNameTouched(true);
-
-    // checking if input is empty
-    if (enteredName.trim() === "") {
-      setEnteredNameIsValid(false);
-      return; // return cancels code executions from below
-    }
   };
 
   const formSubmissionHandler = (event) => {
     event.preventDefault(); // prevents reload on form submit
     setEnteredNameTouched(true);
 
-    // checking if input is empty
-    if (enteredName.trim() === "") {
-      setEnteredNameIsValid(false);
+    // checking if input is empty and if it is form wont submit wont work
+    if (!enteredNameIsValid) {
       return; // return cancels code executions from below
     }
 
-    setEnteredNameIsValid(true);
-
     console.log(enteredName);
-
-    const enteredValue = nameInputRef.current.value;
-    console.log(enteredValue);
 
     // nameInputRef.current.value = ''; => not ideal, dont manipulate the dom
     setEnteredName("");
+    setEnteredNameTouched(false);
   };
-
-  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
 
   // checking if enteredNameIsValid is true
   // if true add one class and if false add another
@@ -60,7 +42,6 @@ const SimpleInput = (props) => {
       <div className={nameInputClasses}>
         <label htmlFor="name">Your Name</label>
         <input
-          ref={nameInputRef}
           type="text"
           id="name"
           onChange={nameInputChangeHanlder}
