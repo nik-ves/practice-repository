@@ -4,8 +4,14 @@ const SimpleInput = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
 
-  const enteredNameIsValid = enteredName.trim() !== '';
+  const enteredNameIsValid = enteredName.trim() !== "";
   const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
+
+  let formIsValid = false;
+
+  if (enteredNameIsValid) {
+    formIsValid(true);
+  }
 
   const nameInputChangeHanlder = (event) => {
     setEnteredName(event.target.value);
@@ -54,7 +60,7 @@ const SimpleInput = (props) => {
       </div>
 
       <div className="form-actions">
-        <button>Submit</button>
+        <button disabled={!formIsValid}>Submit</button>
       </div>
     </form>
   );
