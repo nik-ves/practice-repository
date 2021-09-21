@@ -1,7 +1,7 @@
 import { useParams, Route } from "react-router-dom";
 import { Fragment } from "react/cjs/react.production.min";
 
-import Comments from '../comments/Comments';
+import Comments from "../comments/Comments";
 
 const QuoteDetail = () => {
   const params = useParams();
