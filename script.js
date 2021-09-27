@@ -71,33 +71,53 @@ const currencies = new Map([
   ["GBP", "Pound sterling"],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
-let array = ["a", "b", "c", "d", "e"];
+// let array = ["a", "b", "c", "d", "e"];
 
-// SLICE
-// extract part of any array without changing the original array and it returns a new array
-let sliced = array.slice(2, 4); // 2 is the starting parametar and 4 is the end parametar and is not included in an array
-console.log(sliced);
+// // SLICE
+// // extract part of any array without changing the original array and it returns a new array
+// let sliced = array.slice(2, 4); // 2 is the starting parametar and 4 is the end parametar and is not included in an array
+// console.log(sliced);
 
-// SPLICE
-// same as slice and changes the original array
-let spliced = array.splice(2);
-console.log(spliced);
+// // SPLICE
+// // same as slice and changes the original array
+// let spliced = array.splice(2);
+// console.log(spliced);
 
-// REVERSE
-// reverse method changes the original array and does not return a new one
-array = ["a", "b", "c", "d", "e"];
-let array2 = ["j", "i", "h", "g", "f"];
-console.log(array2.reverse());
+// // REVERSE
+// // reverse method changes the original array and does not return a new one
+// array = ["a", "b", "c", "d", "e"];
+// let array2 = ["j", "i", "h", "g", "f"];
+// console.log(array2.reverse());
 
-// CONCAT
-// joins arrays
-let letters = array.concat(array2);
-console.log(letters);
-console.log([...array, ...array2]); // another way of joining arrays with spread operator
+// // CONCAT
+// // joins arrays
+// let letters = array.concat(array2);
+// console.log(letters);
+// console.log([...array, ...array2]); // another way of joining arrays with spread operator
 
-// JOIN
-console.log(letters.join(" - "));
+// // JOIN
+// console.log(letters.join(" - "));
+
+// -------------------------------------------------------------
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// for (const movement of movements) {
+//   if (movement > 0) {
+//     console.log(`You deposited ${movement}`);
+//   } else {
+//     console.log(`You withdrew ${Math.abs(movement)}`);
+//   }
+// }
+
+movements.forEach((movement) => {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+});
