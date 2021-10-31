@@ -13,14 +13,10 @@ const Search = React.memo((props) => {
         ? ""
         : `?orderBy="title"&equalTo="${enteredFilter}"`;
 
-    fetch(
-      "https://react-hooks-summary-7f9bf-default-rtdb.europe-west1.firebasedatabase.app/ingredient.json" +
-        query
-    )
+    fetch("https://react-hooks-summary-7f9bf-default-rtdb.europe-west1.firebasedatabase.app/ingredient.json" + query)
       .then((response) => response.json())
       .then((responseData) => {
         const loadedIngredients = [];
-
         for (const key in responseData) {
           loadedIngredients.push({
             id: key,
@@ -28,7 +24,7 @@ const Search = React.memo((props) => {
             amount: responseData[key].amount,
           });
         }
-        // onLoadIngredients(loadedIngredients);
+        onLoadIngredients(loadedIngredients);
       });
   }, [enteredFilter, onLoadIngredients]);
 
