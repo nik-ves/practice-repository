@@ -32,7 +32,16 @@ const Ingredients = () => {
   };
 
   const removeIngredientHandler = (ingredientId) => {
-    setUserIngredients(userIngredients.filter((ig) => ig.id !== ingredientId));
+    fetch(
+      `https://react-hooks-summary-7f9bf-default-rtdb.europe-west1.firebasedatabase.app/ingredients/${ingredientId}.json`,
+      {
+        method: "DELETE",
+      }
+    ).then((response) => {
+      setUserIngredients(
+        userIngredients.filter((ig) => ig.id !== ingredientId)
+      );
+    });
   };
 
   return (
