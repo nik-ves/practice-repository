@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 
 import IngredientForm from "./IngredientForm";
 import IngredientList from "./IngredientList";
@@ -13,7 +13,7 @@ const Ingredients = () => {
 
   const addIngredientHandler = (ingredient) => {
     fetch(
-      "https://react-hooks-summary-7f9bf-default-rtdb.europe-west1.firebasedatabase.app/ingredient.json",
+      "https://react-hooks-summary-7f9bf-default-rtdb.europe-west1.firebasedatabase.app/ingredients.json",
       {
         method: "POST",
         body: JSON.stringify(ingredient),
