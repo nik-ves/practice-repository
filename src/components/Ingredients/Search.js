@@ -13,25 +13,30 @@ const Search = React.memo((props) => {
       if (enteredFilter === inputRef.current.value) {
         const query =
           enteredFilter.length === 0
-            ? ''
+            ? ""
             : `?orderBy="title"&equalTo="${enteredFilter}"`;
         fetch(
-          'https://react-hooks-summary-7f9bf-default-rtdb.europe-west1.firebasedatabase.app/ingredients.json' + query
+          "https://react-hooks-summary-7f9bf-default-rtdb.europe-west1.firebasedatabase.app/ingredients.json" +
+            query
         )
-          .then(response => response.json())
-          .then(responseData => {
+          .then((response) => response.json())
+          .then((responseData) => {
             const loadedIngredients = [];
             for (const key in responseData) {
               loadedIngredients.push({
                 id: key,
                 title: responseData[key].title,
-                amount: responseData[key].amount
+                amount: responseData[key].amount,
               });
             }
             onLoadIngredients(loadedIngredients);
           });
       }
     }, 500);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [enteredFilter, onLoadIngredients, inputRef]);
 
   const filterChangeHanlder = (event) => {
