@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useCallback } from "react";
+import React, { useReducer, useCallback, useMemo } from "react";
 
 import IngredientForm from "./IngredientForm";
 import IngredientList from "./IngredientList";
@@ -26,8 +26,8 @@ const httpReducer = (curHttpState, action) => {
       return { ...curHttpState, loading: false };
     case "ERROR":
       return { loading: false, error: action.errorMessage };
-    case 'CLEAR':
-      return {...curHttpState, error: null}
+    case "CLEAR":
+      return { ...curHttpState, error: null };
     default:
       throw new Error("Should not be reached!");
   }
@@ -35,7 +35,10 @@ const httpReducer = (curHttpState, action) => {
 
 const Ingredients = () => {
   const [userIngredients, dispatch] = useReducer(ingredientReducer, []);
-  const [httpState, dispatchHttp] = useReducer(httpReducer, { loading: false, error: null });
+  const [httpState, dispatchHttp] = useReducer(httpReducer, {
+    loading: false,
+    error: null,
+  });
 
   // const [userIngredients, setUserIngredients] = useState([]);
   // const [isLoading, setIsLoading] = useState(false);
@@ -46,8 +49,8 @@ const Ingredients = () => {
     dispatch({ type: "SET", ingredients: filteredIngredients });
   }, []);
 
-  const addIngredientHandler = (ingredient) => {
-    dispatchHttp({type: 'SEND'})
+  const addIngredientHandler = useCallback((ingredient) => {
+    dispatchHttp({ type: "SEND" });
     fetch(
       "https://react-hooks-summary-7f9bf-default-rtdb.europe-west1.firebasedatabase.app/ingredients.json",
       {
@@ -57,7 +60,7 @@ const Ingredients = () => {
       }
     )
       .then((response) => {
-        dispatchHttp({type: 'RESPONSE'})
+        dispatchHttp({ type: "RESPONSE" });
         return response.json();
       })
       .then((responseData) => {
@@ -70,10 +73,10 @@ const Ingredients = () => {
           ingredient: { id: responseData.name, ...ingredient },
         });
       });
-  };
+  }, []);
 
-  const removeIngredientHandler = (ingredientId) => {
-    dispatchHttp({type: 'SEND'})
+  const removeIngredientHandler = useCallback((ingredientId) => {
+    dispatchHttp({ type: "SEND" });
     fetch(
       `https://react-hooks-summary-7f9bf-default-rtdb.europe-west1.firebasedatabase.app/ingredients/${ingredientId}.json`,
       {
@@ -81,24 +84,35 @@ const Ingredients = () => {
       }
     )
       .then((response) => {
-        dispatchHttp({type: 'RESPONSE'})
+        dispatchHttp({ type: "RESPONSE" });
         // setUserIngredients(
         //   userIngredients.filter((ig) => ig.id !== ingredientId)
         // );
         dispatch({ type: "DELETE", id: ingredientId });
       })
       .catch((error) => {
-        dispatchHttp({type: 'ERROR', errorMessage: 'Something went wrong!'})
+        dispatchHttp({ type: "ERROR", errorMessage: "Something went wrong!" });
       });
-  };
+  }, []);
 
-  const clearError = () => {
-    dispatchHttp({type: 'CLEAR'})
-  };
+  const clearError = useCallback(() => {
+    dispatchHttp({ type: "CLEAR" });
+  }, []);
+
+  const ingredientList = useMemo(() => {
+    return (
+      <IngredientList
+        ingredients={userIngredients}
+        onRemoveItem={removeIngredientHandler}
+      />
+    );
+  }, [userIngredients, removeIngredientHandler]);
 
   return (
     <div className="App">
-      {httpState.error && <ErrorModal onClose={clearError}>{httpState.error}</ErrorModal>}
+      {httpState.error && (
+        <ErrorModal onClose={clearError}>{httpState.error}</ErrorModal>
+      )}
 
       <IngredientForm
         onAddIngredient={addIngredientHandler}
@@ -107,10 +121,7 @@ const Ingredients = () => {
 
       <section>
         <Search onLoadIngredients={filteredIngredientsHandler} />
-        <IngredientList
-          ingredients={userIngredients}
-          onRemoveItem={removeIngredientHandler}
-        />
+        {ingredientList}
       </section>
     </div>
   );
