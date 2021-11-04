@@ -14,20 +14,19 @@ let hobbies: string[]; // tells typescript that we wnat to have an array of stri
 
 hobbies = ["Sports", "Cooking"];
 
-let person: {
+type Person = {
   name: string;
   age: number;
-}; // not creating an object but defining the type which is an object
+}
+
+let person: Person; // not creating an object but defining the type which is an object
 
 person = {
   name: "Nikola",
   age: 23,
 };
 
-let people: { // here we are saying that we want to store na array of defined object
-  name: string;
-  age: number;
-}[];
+let people: Person[];  // here we are saying that we want to store na array of defined object
 
 // Type inference
 let course = 'React - Complete Guide';
@@ -37,3 +36,12 @@ let course = 'React - Complete Guide';
 
 let newCourse: string | number = 'React - Complete Guide';
 newCourse = 1234;
+
+// Functions and types
+function add(a: number, b: number) {
+  return a + b;
+}
+
+function printOutput(value: any) {
+  console.log(value);
+}
