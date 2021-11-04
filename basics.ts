@@ -17,7 +17,7 @@ hobbies = ["Sports", "Cooking"];
 type Person = {
   name: string;
   age: number;
-}
+};
 
 let person: Person; // not creating an object but defining the type which is an object
 
@@ -26,15 +26,15 @@ person = {
   age: 23,
 };
 
-let people: Person[];  // here we are saying that we want to store na array of defined object
+let people: Person[]; // here we are saying that we want to store na array of defined object
 
 // Type inference
-let course = 'React - Complete Guide';
+let course = "React - Complete Guide";
 
 // course = 1234; // typescript recognized in the step above that the course is type string
-// defining a type should be avoided because its redundant 
+// defining a type should be avoided because its redundant
 
-let newCourse: string | number = 'React - Complete Guide';
+let newCourse: string | number = "React - Complete Guide";
 newCourse = 1234;
 
 // Functions and types
@@ -45,3 +45,18 @@ function add(a: number, b: number) {
 function printOutput(value: any) {
   console.log(value);
 }
+
+// Generics
+function instertAtBeginning<T>(array: T[], value: T) {
+  const newArray = [value, ...array];
+  return newArray;
+}
+
+const numberArray = [1, 2, 3];
+const stringArray = ['a', 'b', 'c'];
+
+
+const updatedArray = instertAtBeginning(numberArray, -1); //[-1, 1, 2, 3];
+const updatedArray2 = instertAtBeginning(stringArray, 'd'); 
+
+
