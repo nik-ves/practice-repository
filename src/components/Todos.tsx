@@ -1,8 +1,10 @@
-const Todos = () => {
+const Todos: React.FC<{ items: string[] }> = (props) => {
+  // React.FC makes it clear that code is a function that acts as a function component
   return (
     <ul>
-      <li>Learn react</li>
-      <li>Learn typescript</li>
+      {props.items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
     </ul>
   );
 };

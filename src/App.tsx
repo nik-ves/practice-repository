@@ -1,7 +1,7 @@
 import Todos from "./components/Todos";
 
 function App() {
-  return <Todos />;
+  return <Todos items={["Learn react", "Learn typescript"]} />;
 }
 
 export default App;
