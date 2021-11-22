@@ -1,6 +1,6 @@
 "use strict";
 
-console.log('===== Constructor function =====')
+console.log("===== Constructor function =====");
 // constructor function
 const Person = function (firstName, birthYear) {
   // instance properties
@@ -29,7 +29,7 @@ console.log(jack);
 
 console.log(matilda instanceof Person);
 
-console.log('===== Prototypes =====')
+console.log("===== Prototypes =====");
 
 // Prototypes
 console.log(Person.prototype);
@@ -42,5 +42,21 @@ nikola.calcAge();
 matilda.calcAge();
 jack.calcAge();
 
-Person.prototype.species = 'Homo Sapiens';
-console.log(nikola, matilda)
+Person.prototype.species = "Homo Sapiens";
+console.log(nikola, matilda);
+
+console.log("===== Prototypal inheritance =====");
+
+console.log(nikola.__proto__.__proto__);
+console.dir(Person.prototype.constructor);
+
+const arr = [3, 6, 4, 5, 6, 9, 3]; // new Array === []
+console.log(arr.__proto__ === Array.prototype);
+
+Array.prototype.unique = function () {
+  return [...new Set(this)];
+};
+
+console.log(arr.unique())
+
+const h1 = document.querySelector('h1');
