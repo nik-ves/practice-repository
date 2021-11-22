@@ -1,5 +1,6 @@
 "use strict";
 
+console.log('===== Constructor function =====')
 // constructor function
 const Person = function (firstName, birthYear) {
   // instance properties
@@ -27,3 +28,19 @@ console.log(matilda);
 console.log(jack);
 
 console.log(matilda instanceof Person);
+
+console.log('===== Prototypes =====')
+
+// Prototypes
+console.log(Person.prototype);
+
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+nikola.calcAge();
+matilda.calcAge();
+jack.calcAge();
+
+Person.prototype.species = 'Homo Sapiens';
+console.log(nikola, matilda)
