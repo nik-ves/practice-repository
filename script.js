@@ -1,29 +1,34 @@
 "use strict";
 
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
-const btnCloseModal = document.querySelector(".close-modal");
-const btnOpenModal = document.querySelectorAll(".show-modal");
+// elements
+const score0El = document.querySelector("#score--0");
+const score1El = document.querySelector("#score--1");
+const current0El = document.querySelector('#current--0');
+const current1El = document.querySelector('#current--1');
+const diceEl = document.querySelector(".dice");
 
-const openModalHandler = () => {
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
-};
+// buttons
+const newBtn = document.querySelector(".btn--new");
+const rollBtn = document.querySelector(".btn--roll");
+const holdBtn = document.querySelector(".btn--hold");
 
-for (let i = 0; i < btnOpenModal.length; i++) {
-  btnOpenModal[i].addEventListener("click", openModalHandler);
-}
+// score
+let currentScore = 0;
 
-const closeModalHandler = () => {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
-};
+score0El.textContent = 0;
+score1El.textContent = 0;
+diceEl.classList.add("hidden");
 
-btnCloseModal.addEventListener("click", closeModalHandler);
-overlay.addEventListener("click", closeModalHandler);
+// rolling dice functionality
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && !modal.classList.contains("hidden")) {
-    closeModalHandler();
+rollBtn.addEventListener("click", () => {
+  const dice = Math.trunc(Math.random() * 6) + 1;
+  diceEl.classList.remove("hidden");
+  diceEl.src = `dice-${dice}.png`;
+
+  if (dice !== 1) {
+    currentScore += dice;
+    current0El.textContent = currentScore;
+  } else {
   }
 });
