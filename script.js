@@ -1,22 +1,38 @@
 "use strict";
 
-// let message = (document.querySelector(".message").textContent = "test");
-// let number = document.querySelector(".number");
-// let score = document.querySelector(".score");
-// let inputField = document.querySelector(".guess").value = 23;
-
-// console.log(inputField)
-
 const button = document.querySelector(".check");
+const secretNumber = Math.trunc(Math.random() * 20) + 1;
+const secretNumberBox = (document.querySelector(".number").textContent =
+  secretNumber);
+
+let score = 20;
 
 button.addEventListener("click", () => {
-  const inputField = Number(document.querySelector(".guess").value);
-  const message = document.querySelector(".message");
+  const guess = Number(document.querySelector(".guess").value);
+  // const message = document.querySelector(".message").textContent;
+  // const scoreBox = (document.querySelector(".score").textContent = score);
 
-  console.log(inputField, typeof inputField);
-
-  // checking if there is no input
-  if (!inputField) {
-    document.querySelector(".message").textContent = "No number";
+  if (!guess) {
+    document.querySelector(".message").textContent = "No number!";
+  } else if (guess === secretNumber) {
+    document.querySelector(".message").textContent = "Correct number!";
+  } else if (guess < secretNumber) {
+    if (score > 1) {
+      document.querySelector(".message").textContent = "Too low!";
+      score--;
+      document.querySelector(".score").textContent = score;
+    } else {
+      document.querySelector(".message").textContent = "You lost the game!";
+      document.querySelector(".score").textContent = 0;
+    }
+  } else if (guess > secretNumber) {
+    if (score > 1) {
+      document.querySelector(".message").textContent = "Too high!";
+      score--;
+      document.querySelector(".score").textContent = score;
+    } else {
+      document.querySelector(".message").textContent = "You lost the game!";
+      document.querySelector(".score").textContent = 0;
+    }
   }
 });
