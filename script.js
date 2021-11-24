@@ -1,38 +1,51 @@
 "use strict";
 
+let secretNumberBox = document.querySelector(".number");
+let message = document.querySelector(".message");
+let highscore = document.querySelector(".highscore");
+let scoreBox = document.querySelector(".score");
+
 const button = document.querySelector(".check");
 const secretNumber = Math.trunc(Math.random() * 20) + 1;
-const secretNumberBox = (document.querySelector(".number").textContent =
-  secretNumber);
+console.log(secretNumber);
 
 let score = 20;
 
 button.addEventListener("click", () => {
   const guess = Number(document.querySelector(".guess").value);
-  // const message = document.querySelector(".message").textContent;
-  // const scoreBox = (document.querySelector(".score").textContent = score);
 
+  // no input check
   if (!guess) {
-    document.querySelector(".message").textContent = "No number!";
+    message.textContent = "No number";
+
+    // quess is correct
   } else if (guess === secretNumber) {
-    document.querySelector(".message").textContent = "Correct number!";
+    message.textContent = "Correct number!";
+    highscore.textContent = score;
+    document.querySelector("body").style.backgroundColor = "#60b347";
+    secretNumberBox.style.width = "30rem";
+    secretNumberBox.textContent = secretNumber;
+
+    // guess is low
   } else if (guess < secretNumber) {
     if (score > 1) {
-      document.querySelector(".message").textContent = "Too low!";
+      message.textContent = "Too low!";
       score--;
-      document.querySelector(".score").textContent = score;
+      scoreBox.textContent = score;
     } else {
-      document.querySelector(".message").textContent = "You lost the game!";
-      document.querySelector(".score").textContent = 0;
+      message.textContent = "You lost the game!";
+      scoreBox.textContent = 0;
     }
+
+    // guess is high
   } else if (guess > secretNumber) {
     if (score > 1) {
-      document.querySelector(".message").textContent = "Too high!";
+      message.textContent = "Too high!";
       score--;
-      document.querySelector(".score").textContent = score;
+      scoreBox.textContent = score;
     } else {
-      document.querySelector(".message").textContent = "You lost the game!";
-      document.querySelector(".score").textContent = 0;
+      message.textContent = "You lost the game!";
+      scoreBox.textContent = 0;
     }
   }
 });
