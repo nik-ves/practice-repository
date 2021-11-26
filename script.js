@@ -106,47 +106,100 @@
 // const f = nikola.calcAge;
 // f();
 
-var firstName = "Matilda";
+// var firstName = "Matilda";
 
-const nikola = {
-  firstName: "Nikola",
-  year: 1998,
-  calcAge: function () {
-    console.log(this);
-    console.log(2037 - this.year);
+// const nikola = {
+//   firstName: "Nikola",
+//   year: 1998,
+//   calcAge: function () {
+//     console.log(this);
+//     console.log(2037 - this.year);
 
-    // const self = this;
-    // const isMillenial = function() {
-    //   console.log(self.year >= 1981 && self.year <= 1996)
-    // }
-    // isMillenial()
+//     // const self = this;
+//     // const isMillenial = function() {
+//     //   console.log(self.year >= 1981 && self.year <= 1996)
+//     // }
+//     // isMillenial()
 
-    const isMillenial = () => {
-      console.log(this.year >= 1981 && this.year <= 1996);
-    };
-    isMillenial();
-  },
+//     const isMillenial = () => {
+//       console.log(this.year >= 1981 && this.year <= 1996);
+//     };
+//     isMillenial();
+//   },
 
-  greet: () => {
-    console.log(this);
-    console.log(`Hey, ${this.firstName}`);
-  },
+//   greet: () => {
+//     console.log(this);
+//     console.log(`Hey, ${this.firstName}`);
+//   },
+// };
+
+// // nikola.greet();
+// // nikola.calcAge();
+
+// // arguments keyword
+// const addExpr = function (a, b) {
+//   console.log(arguments)
+//   return a + b;
+// };
+// addExpr(2, 5)
+// addExpr(2, 5, 5, 7)
+
+// var addArrow = (a, b) => {
+//   console.log(arguments)
+//   return a + b;
+// };
+
+// addArrow(2, 5, 5, 7)
+
+// let age = 30;
+// let oldAge = age;
+// age = 31;
+// console.log(age);
+// console.log(oldAge);
+
+// const me = {
+//   name: "Nikola",
+//   age: 30,
+// };
+
+// const friend = me;
+// friend.age = 27;
+
+// console.log(me)
+// console.log(friend)
+
+// primitive types
+let lastName = "Williams";
+let oldLastName = lastName;
+lastName = "Davis";
+
+console.log(lastName, oldLastName);
+
+// reference types
+const jessica = {
+  firstName: "Jesica",
+  lastName: "Williams",
+  age: 27,
 };
 
-// nikola.greet();
-// nikola.calcAge();
+const marriedJessica = jessica;
+marriedJessica.lastName = "Davis";
 
-// arguments keyword
-const addExpr = function (a, b) {
-  console.log(arguments)
-  return a + b;
-};
-addExpr(2, 5)
-addExpr(2, 5, 5, 7)
+console.log(jessica, marriedJessica);
 
-var addArrow = (a, b) => {
-  console.log(arguments)
-  return a + b;
+// copying objects
+
+const jessica2 = {
+  firstName: "Jesica",
+  lastName: "Williams",
+  age: 27,
+  family: ["Alice", "Bob"],
 };
 
-addArrow(2, 5, 5, 7)
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = "Davis";
+
+jessicaCopy.family.push("Mark");
+jessicaCopy.family.push("John");
+
+console.log(jessica2, jessicaCopy);
