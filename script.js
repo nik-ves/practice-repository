@@ -105,24 +105,31 @@ console.log(null || undefined);
 console.log(undefined || 0 || "" || "Hello" || 23 || null);
 
 // restaurant.numGuest = 23;
-const guests1 = restaurant.numGuest ? restaurant.numGuest : 10;
-console.log(guests1);
+// const guests1 = restaurant.numGuest ? restaurant.numGuest : 10;
+// console.log(guests1);
 
-const guest2 = restaurant.numGuest || 10;
-console.log(guest2);
+// const guest2 = restaurant.numGuest || 10;
+// console.log(guest2);
 
 console.log("======== AND ========");
 console.log(0 && "Nikola");
 console.log(7 && "Nikola");
 
-console.log('Hello' && 23 && null && 'Nikola')
+console.log("Hello" && 23 && null && "Nikola");
 
 // practical example
 if (restaurant.orderPizza) {
-  restaurant.orderPizza('mushrooms', 'spinach')
+  restaurant.orderPizza("mushrooms", "spinach");
 }
 
-restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach')
+restaurant.orderPizza && restaurant.orderPizza("mushrooms", "spinach");
+
+restaurant.numGuest = 0;
+const guests = restaurant.numGuest ? restaurant.numGuest : 10;
+console.log(guests);
+
+const guestCorrect = restaurant.numGuest ?? 10;
+console.log(guestCorrect);
 
 // const arr = [7, 8, 9];
 // const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
