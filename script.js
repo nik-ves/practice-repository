@@ -48,9 +48,9 @@ const restaurant = {
     );
   },
 
-  orderPizza: function(mainIngredient, ...otherIngredients) {
+  orderPizza: function (mainIngredient, ...otherIngredients) {
     console.log(mainIngredient, otherIngredients);
-  }
+  },
 };
 
 // SPREAD, because on RIGHT side of =
@@ -91,11 +91,38 @@ add(8, 2, 5, 3, 2, 1, 4);
 const x = [23, 5, 7];
 add(...x);
 
-restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach')
+restaurant.orderPizza("mushrooms", "onion", "olives", "spinach");
 
-restaurant.orderPizza('mushrooms')
+restaurant.orderPizza("mushrooms");
 
+console.log("======== OR ========");
+// use ANY data type, return ANY data type, short-circuiting
+console.log(3 || "Nikola");
+console.log("" || "Hello");
+console.log(true || 0);
+console.log(null || undefined);
 
+console.log(undefined || 0 || "" || "Hello" || 23 || null);
+
+// restaurant.numGuest = 23;
+const guests1 = restaurant.numGuest ? restaurant.numGuest : 10;
+console.log(guests1);
+
+const guest2 = restaurant.numGuest || 10;
+console.log(guest2);
+
+console.log("======== AND ========");
+console.log(0 && "Nikola");
+console.log(7 && "Nikola");
+
+console.log('Hello' && 23 && null && 'Nikola')
+
+// practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach')
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach')
 
 // const arr = [7, 8, 9];
 // const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
