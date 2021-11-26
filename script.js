@@ -70,3 +70,38 @@ function deleteShoppingCart() {
 var x = 1;
 let y = 2;
 const z = 3;
+
+// console.log(this);
+
+const calcAge = function (birthYear) {
+  console.log(2037 - birthYear);
+  console.log(this);
+};
+
+calcAge(1998);
+
+const calcAgeArrow = (birthYear) => {
+  console.log(2037 - birthYear);
+  console.log(this);
+};
+
+calcAgeArrow(1990);
+
+const nikola = {
+  year: 1998,
+  calcAge: function () {
+    console.log(this);
+    console.log(2037 - this.year);
+  },
+};
+nikola.calcAge();
+
+const matilda = {
+  year: 2017,
+};
+
+matilda.calcAge = nikola.calcAge;
+matilda.calcAge();
+
+const f = nikola.calcAge;
+f();
