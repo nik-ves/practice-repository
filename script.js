@@ -53,6 +53,17 @@ const restaurant = {
   },
 };
 
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) {
+  console.log(item);
+}
+
+for (const item of menu.entries()) {
+  const [index, food] = item;
+  console.log(`${index + 1}: ${food}`);
+}
+
 // const rest1 = {
 //   name: "Capri",
 //   // numGuests: 20,
@@ -284,72 +295,72 @@ const restaurant = {
 // const [p=1, q=1, r=1] = [8, 9]; // we can set default values inside the destructured array
 // console.log(p, q, r);
 
-const game = {
-  team1: "Bayern Munich",
-  team2: "Borrussia Dortmund",
-  players: [
-    [
-      "Neuer",
-      "Pavard",
-      "Martinez",
-      "Alaba",
-      "Davies",
-      "Kimmich",
-      "Goretzka",
-      "Coman",
-      "Muller",
-      "Gnarby",
-      "Lewandowski",
-    ],
-    [
-      "Burki",
-      "Schulz",
-      "Hummels",
-      "Akanji",
-      "Hakimi",
-      "Weigl",
-      "Witsel",
-      "Hazard",
-      "Brandt",
-      "Sancho",
-      "Gotze",
-    ],
-  ],
-  score: "4:0",
-  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
-  date: "Nov 9th, 2037",
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+// const game = {
+//   team1: "Bayern Munich",
+//   team2: "Borrussia Dortmund",
+//   players: [
+//     [
+//       "Neuer",
+//       "Pavard",
+//       "Martinez",
+//       "Alaba",
+//       "Davies",
+//       "Kimmich",
+//       "Goretzka",
+//       "Coman",
+//       "Muller",
+//       "Gnarby",
+//       "Lewandowski",
+//     ],
+//     [
+//       "Burki",
+//       "Schulz",
+//       "Hummels",
+//       "Akanji",
+//       "Hakimi",
+//       "Weigl",
+//       "Witsel",
+//       "Hazard",
+//       "Brandt",
+//       "Sancho",
+//       "Gotze",
+//     ],
+//   ],
+//   score: "4:0",
+//   scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+//   date: "Nov 9th, 2037",
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
-// 1.
-const [players1, players2] = game.players;
-// console.log(players1, players2);
+// // 1.
+// const [players1, players2] = game.players;
+// // console.log(players1, players2);
 
-// 2.
-const [gk, ...fieldplayers] = players1;
+// // 2.
+// const [gk, ...fieldplayers] = players1;
 
-// 3.
-const allPlayers = [...players1, ...players2];
+// // 3.
+// const allPlayers = [...players1, ...players2];
 
-// 4.
-const players1Final = [...players1, "Thiago", "Coutinho", "Perisic"];
+// // 4.
+// const players1Final = [...players1, "Thiago", "Coutinho", "Perisic"];
 
-// 5.
-const { team1, x: draw, team2 } = game.odds;
+// // 5.
+// const { team1, x: draw, team2 } = game.odds;
 
-// 6.
-function printGoals( ...players) {
-  console.log(players)
-  console.log(players.length)
-}
+// // 6.
+// function printGoals( ...players) {
+//   console.log(players)
+//   console.log(players.length)
+// }
 
-printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
-printGoals(...game.scored);
+// printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+// printGoals(...game.scored);
 
-// 7. 
-team1 < team2 && console.log('Team 1 is more likely to win');
-team1 > team2 && console.log('Team 2 is more likely to win');
+// // 7.
+// team1 < team2 && console.log('Team 1 is more likely to win');
+// team1 > team2 && console.log('Team 2 is more likely to win');
