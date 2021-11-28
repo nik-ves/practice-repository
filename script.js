@@ -53,28 +53,28 @@ const restaurant = {
   },
 };
 
-// property NAMES
-const properties = Object.keys(openingHours);
-console.log(properties);
+// // property NAMES
+// const properties = Object.keys(openingHours);
+// console.log(properties);
 
-let openStr = `We are open on ${properties.length} days: `;
+// let openStr = `We are open on ${properties.length} days: `;
 
-for (const day of Object.keys(openingHours)) {
-  openStr += `${day}, `;
-}
-console.log(openStr);
+// for (const day of Object.keys(openingHours)) {
+//   openStr += `${day}, `;
+// }
+// console.log(openStr);
 
-// property VALUES
-const values = Object.values(openingHours);
-console.log(values);
+// // property VALUES
+// const values = Object.values(openingHours);
+// console.log(values);
 
-// entries
-const entries = Object.entries(openingHours);
-console.log(entries);
+// // entries
+// const entries = Object.entries(openingHours);
+// console.log(entries);
 
-for (const [key, {open, close}] of entries) {
-  console.log(`On ${key} we open at ${open} and close at ${close}.`);
-}
+// for (const [key, { open, close }] of entries) {
+//   console.log(`On ${key} we open at ${open} and close at ${close}.`);
+// }
 
 // if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
 
@@ -418,3 +418,95 @@ for (const [key, {open, close}] of entries) {
 // // 7.
 // team1 < team2 && console.log('Team 1 is more likely to win');
 // team1 > team2 && console.log('Team 2 is more likely to win');
+
+// Coding challenge #2
+
+const game = {
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
+  players: [
+    [
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alaba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
+    ],
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+// 1.
+console.log("===== Challenge 1 =====");
+const players = Object.entries(game.scored);
+
+for (const [index, player] of players) {
+  console.log(`Goal ${Number(index) + 1}: ${player}.`);
+}
+
+// 2.
+console.log("===== Challenge 2 =====");
+const odds = Object.values(game.odds);
+
+let oddSum = 0;
+
+for (const odd of odds) {
+  oddSum += odd;
+}
+
+let averageOdd = oddSum / odds.length;
+
+console.log(`Average odd: ${averageOdd.toFixed(2)}.`);
+
+// 3.
+console.log("===== Challenge 3 =====");
+const odds2 = Object.entries(game.odds);
+
+for (const [teamName, odd] of odds2) {
+  let team = "";
+
+  if (teamName === "team1") {
+    team = `victory ${game.team1}`;
+  } else if (teamName === "x") {
+    team = "draw";
+  } else if (teamName === "team2") {
+    team = `victory ${game.team2}`;
+  }
+
+  console.log(`Odd of ${team}: ${odd}`);
+}
+
+// Bonus
+console.log("===== Bonus challenge =====");
+
+const scorers = {
+  Gnarby: 1,
+  Hummels: 1,
+  Lewandowski: 2,
+};
