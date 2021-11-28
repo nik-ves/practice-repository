@@ -53,8 +53,45 @@ const restaurant = {
   },
 };
 
-// // property NAMES
-// const properties = Object.keys(openingHours);
+const ordersSet = new Set([
+  "Pasta",
+  "Pizza",
+  "Pizza",
+  "Risotto",
+  "Pasta",
+  "Pizza",
+]);
+
+console.log(ordersSet);
+
+console.log(new Set("Nikola"));
+
+console.log(ordersSet.size);
+console.log(ordersSet.has("Pizza"));
+console.log(ordersSet.has("Bread"));
+
+ordersSet.add("Garlic Bread");
+ordersSet.add("Garlic Bread");
+ordersSet.delete("Risotto");
+// ordersSet.clear(); // clears whole set
+
+console.log(ordersSet);
+
+for (const order of ordersSet) {
+  console.log(order);
+}
+
+// example
+const staff = ["Waiter", "Chef", "Waiter", "Manager", "Chef", "Waiter"];
+
+const staffUnique = [...new Set(staff)]; //
+console.log(staffUnique);
+console.log(new Set(staff).size);
+
+console.log(new Set("nikola").size);
+
+// property NAMES
+// const properties = Object.entries(openingHours);
 // console.log(properties);
 
 // let openStr = `We are open on ${properties.length} days: `;
@@ -421,92 +458,92 @@ const restaurant = {
 
 // Coding challenge #2
 
-const game = {
-  team1: "Bayern Munich",
-  team2: "Borrussia Dortmund",
-  players: [
-    [
-      "Neuer",
-      "Pavard",
-      "Martinez",
-      "Alaba",
-      "Davies",
-      "Kimmich",
-      "Goretzka",
-      "Coman",
-      "Muller",
-      "Gnarby",
-      "Lewandowski",
-    ],
-    [
-      "Burki",
-      "Schulz",
-      "Hummels",
-      "Akanji",
-      "Hakimi",
-      "Weigl",
-      "Witsel",
-      "Hazard",
-      "Brandt",
-      "Sancho",
-      "Gotze",
-    ],
-  ],
-  score: "4:0",
-  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
-  date: "Nov 9th, 2037",
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+// const game = {
+//   team1: "Bayern Munich",
+//   team2: "Borrussia Dortmund",
+//   players: [
+//     [
+//       "Neuer",
+//       "Pavard",
+//       "Martinez",
+//       "Alaba",
+//       "Davies",
+//       "Kimmich",
+//       "Goretzka",
+//       "Coman",
+//       "Muller",
+//       "Gnarby",
+//       "Lewandowski",
+//     ],
+//     [
+//       "Burki",
+//       "Schulz",
+//       "Hummels",
+//       "Akanji",
+//       "Hakimi",
+//       "Weigl",
+//       "Witsel",
+//       "Hazard",
+//       "Brandt",
+//       "Sancho",
+//       "Gotze",
+//     ],
+//   ],
+//   score: "4:0",
+//   scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+//   date: "Nov 9th, 2037",
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
-// 1.
-console.log("===== Challenge 1 =====");
-const players = Object.entries(game.scored);
+// // 1.
+// console.log("===== Challenge 1 =====");
+// const players = Object.entries(game.scored);
 
-for (const [index, player] of players) {
-  console.log(`Goal ${Number(index) + 1}: ${player}.`);
-}
+// for (const [index, player] of players) {
+//   console.log(`Goal ${Number(index) + 1}: ${player}.`);
+// }
 
-// 2.
-console.log("===== Challenge 2 =====");
-const odds = Object.values(game.odds);
+// // 2.
+// console.log("===== Challenge 2 =====");
+// const odds = Object.values(game.odds);
 
-let oddSum = 0;
+// let oddSum = 0;
 
-for (const odd of odds) {
-  oddSum += odd;
-}
+// for (const odd of odds) {
+//   oddSum += odd;
+// }
 
-let averageOdd = oddSum / odds.length;
+// let averageOdd = oddSum / odds.length;
 
-console.log(`Average odd: ${averageOdd.toFixed(2)}.`);
+// console.log(`Average odd: ${averageOdd.toFixed(2)}.`);
 
-// 3.
-console.log("===== Challenge 3 =====");
-const odds2 = Object.entries(game.odds);
+// // 3.
+// console.log("===== Challenge 3 =====");
+// const odds2 = Object.entries(game.odds);
 
-for (const [teamName, odd] of odds2) {
-  let team = "";
+// for (const [teamName, odd] of odds2) {
+//   let team = "";
 
-  if (teamName === "team1") {
-    team = `victory ${game.team1}`;
-  } else if (teamName === "x") {
-    team = "draw";
-  } else if (teamName === "team2") {
-    team = `victory ${game.team2}`;
-  }
+//   if (teamName === "team1") {
+//     team = `victory ${game.team1}`;
+//   } else if (teamName === "x") {
+//     team = "draw";
+//   } else if (teamName === "team2") {
+//     team = `victory ${game.team2}`;
+//   }
 
-  console.log(`Odd of ${team}: ${odd}`);
-}
+//   console.log(`Odd of ${team}: ${odd}`);
+// }
 
-// Bonus
-console.log("===== Bonus challenge =====");
+// // Bonus
+// console.log("===== Bonus challenge =====");
 
-const scorers = {
-  Gnarby: 1,
-  Hummels: 1,
-  Lewandowski: 2,
-};
+// const scorers = {
+//   Gnarby: 1,
+//   Hummels: 1,
+//   Lewandowski: 2,
+// };
