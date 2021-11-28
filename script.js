@@ -53,42 +53,73 @@ const restaurant = {
   },
 };
 
-const ordersSet = new Set([
-  "Pasta",
-  "Pizza",
-  "Pizza",
-  "Risotto",
-  "Pasta",
-  "Pizza",
-]);
+const rest = new Map();
+rest.set("name", "Classico Italiano");
+rest.set(1, "Firenze, Italy");
+rest.set(2, "Lisbon, Portugal");
 
-console.log(ordersSet);
+rest
+  .set("categories", ["Italian", "Pizzeria", "Vegetarian", "Organic"])
+  .set("open", 11)
+  .set("close", 23)
+  .set(true, "We are open")
+  .set(false, "We are closed");
 
-console.log(new Set("Nikola"));
+console.log(rest.get("name"));
+console.log(rest.get(true));
+console.log(rest.get(1));
 
-console.log(ordersSet.size);
-console.log(ordersSet.has("Pizza"));
-console.log(ordersSet.has("Bread"));
+const time = 21;
+console.log(rest.get(time > rest.get("open") && time < rest.get("close")));
 
-ordersSet.add("Garlic Bread");
-ordersSet.add("Garlic Bread");
-ordersSet.delete("Risotto");
-// ordersSet.clear(); // clears whole set
+console.log(rest.has("categories"));
+rest.delete(2);
+console.log(rest.size);
+// rest.clear() // removes all elements
 
-console.log(ordersSet);
+rest.set([1, 2], "Test");
+rest.set(document.querySelector('h1'), 'Heading')
 
-for (const order of ordersSet) {
-  console.log(order);
-}
+console.log(rest);
 
-// example
-const staff = ["Waiter", "Chef", "Waiter", "Manager", "Chef", "Waiter"];
+console.log(rest.get([1, 2]));
 
-const staffUnique = [...new Set(staff)]; //
-console.log(staffUnique);
-console.log(new Set(staff).size);
+// const ordersSet = new Set([
+//   "Pasta",
+//   "Pizza",
+//   "Pizza",
+//   "Risotto",
+//   "Pasta",
+//   "Pizza",
+// ]);
 
-console.log(new Set("nikola").size);
+// console.log(ordersSet);
+
+// console.log(new Set("Nikola"));
+
+// console.log(ordersSet.size);
+// console.log(ordersSet.has("Pizza"));
+// console.log(ordersSet.has("Bread"));
+
+// ordersSet.add("Garlic Bread");
+// ordersSet.add("Garlic Bread");
+// ordersSet.delete("Risotto");
+// // ordersSet.clear(); // clears whole set
+
+// console.log(ordersSet);
+
+// for (const order of ordersSet) {
+//   console.log(order);
+// }
+
+// // example
+// const staff = ["Waiter", "Chef", "Waiter", "Manager", "Chef", "Waiter"];
+
+// const staffUnique = [...new Set(staff)]; //
+// console.log(staffUnique);
+// console.log(new Set(staff).size);
+
+// console.log(new Set("nikola").size);
 
 // property NAMES
 // const properties = Object.entries(openingHours);
