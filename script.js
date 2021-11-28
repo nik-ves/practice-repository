@@ -70,62 +70,81 @@ const gameEvents = new Map([
 const flights =
   "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
 
-// SPLIT and JOIN
-console.log("a+very+nice+string".split("+"));
-console.log("Nikola Veselinovic".split(" "));
+document.body.append(document.createElement("textarea"));
+document.body.append(document.createElement("button"));
 
-const [firstName, lastName] = "Nikola Veselinovic".split(" ");
-console.log(firstName, lastName);
+const button = document.querySelector("button");
 
-const newName = ["Mr.", firstName, lastName.toUpperCase()].join(" ");
-console.log(newName);
+document.querySelector("button").addEventListener("click", function () {
+  const text = document.querySelector("textarea").value;
+  const rows = text.split("\n");
 
-const passenger = "Jessica Ann Smith Davis";
-
-const capitalizeName = function (name) {
-  const names = name.split(" ");
-  const namesUpper = [];
-
-  for (const n of names) {
-    let newName = n[0].toUpperCase() + n.slice(1); // first way
-    let newName2 = n.replace(n[0], n[0].toUpperCase()); // second way
-    // console.log(newName);
-    namesUpper.push(newName2);
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.toLowerCase().trim().split("_");
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(`${output.padEnd(20)}${"✅".repeat(i + 1)}`);
   }
-  console.log(namesUpper.join(" "));
-};
+});
 
-capitalizeName("jessica ann smith davis");
-capitalizeName("nikola veselinovic");
+// SPLIT and JOIN
+// console.log("a+very+nice+string".split("+"));
+// console.log("Nikola Veselinovic".split(" "));
 
-// Padding
-const message = "Go to gate 23";
-console.log(message.padStart(25, "+").padEnd(30, "+"));
-console.log("Nikola".padStart(20, "+").padEnd(30, "+"));
+// const [firstName, lastName] = "Nikola Veselinovic".split(" ");
+// console.log(firstName, lastName);
 
-const maskCreditCard = function (number) {
-  const str = number + "";
-  const last = str.slice(-4);
-  return last.padStart(str.length, "*");
-};
-console.log(maskCreditCard(44412369712893906));
-console.log(maskCreditCard("482398234723948023842348230"));
+// const newName = ["Mr.", firstName, lastName.toUpperCase()].join(" ");
+// console.log(newName);
 
-// Repeat
-const message2 = "Bad weather... All Departures Delayed... ";
-console.log(message2.repeat(5));
+// const passenger = "Jessica Ann Smith Davis";
 
-const planesInLine = function (numberOfPlanes) {
-  console.log(
-    `There are ${numberOfPlanes} planes in line: ${"plane ".repeat(
-      numberOfPlanes
-    )}`
-  );
-};
+// const capitalizeName = function (name) {
+//   const names = name.split(" ");
+//   const namesUpper = [];
 
-planesInLine(5);
-planesInLine(3);
-planesInLine(1);
+//   for (const n of names) {
+//     let newName = n[0].toUpperCase() + n.slice(1); // first way
+//     let newName2 = n.replace(n[0], n[0].toUpperCase()); // second way
+//     // console.log(newName);
+//     namesUpper.push(newName2);
+//   }
+//   console.log(namesUpper.join(" "));
+// };
+
+// capitalizeName("jessica ann smith davis");
+// capitalizeName("nikola veselinovic");
+
+// // Padding
+// const message = "Go to gate 23";
+// console.log(message.padStart(25, "+").padEnd(30, "+"));
+// console.log("Nikola".padStart(20, "+").padEnd(30, "+"));
+
+// const maskCreditCard = function (number) {
+//   const str = number + "";
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, "*");
+// };
+// console.log(maskCreditCard(44412369712893906));
+// console.log(maskCreditCard("482398234723948023842348230"));
+
+// // Repeat
+// const message2 = "Bad weather... All Departures Delayed... ";
+// console.log(message2.repeat(5));
+
+// const planesInLine = function (numberOfPlanes) {
+//   console.log(
+//     `There are ${numberOfPlanes} planes in line: ${"plane ".repeat(
+//       numberOfPlanes
+//     )}`
+//   );
+// };
+
+// planesInLine(5);
+// planesInLine(3);
+// planesInLine(1);
 
 // const airlane = "Air Serbia";
 
