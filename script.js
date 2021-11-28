@@ -1,8 +1,8 @@
 "use strict";
 
 // Data needed for a later exercise
-const flights =
-  "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
+// const flights =
+//   "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
 
 const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
@@ -67,29 +67,70 @@ const gameEvents = new Map([
   [92, "🔶 Yellow card"],
 ]);
 
-// 1.
-const events = [...new Set(gameEvents.values())];
-console.log(events);
+const flights =
+  "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
 
-// 2.
-const deleteCard = gameEvents.delete(64);
-console.log(gameEvents);
+const airlane = "Air Serbia";
+const plane = "A320";
 
-// 3.
-const numberOfEvents = 90 / gameEvents.size;
-console.log(`An event happened, on average, every ${numberOfEvents} minutes`);
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log("B737"[0]);
 
-// 4.
-for (const [key, value] of gameEvents) {
-  let half = "";
-  if (key <= 45) {
-    half = "[FIRST HALF]";
+console.log(airlane.length);
+console.log("B737".length);
+
+console.log(airlane.indexOf("r"));
+console.log(airlane.lastIndexOf("r"));
+console.log(airlane.indexOf("Serbia")); // case sensitive
+
+console.log(airlane.slice(4, 7)); // slice takes start and end index
+
+console.log(airlane.slice(0, airlane.indexOf(" ")));
+console.log(airlane.slice(airlane.lastIndexOf(" ") + 1));
+
+console.log(airlane.slice(-2));
+console.log(airlane.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats (ABCDEF)
+  const s = seat.slice(-1);
+
+  if (s === "B" || s === "E") {
+    console.log("You got the middle seat!");
   } else {
-    half = "[SECOND HALF]";
+    console.log("You got lucky!");
   }
+};
 
-  console.log(`${half} ${key}: ${value}`);
-}
+checkMiddleSeat("11B");
+checkMiddleSeat("23C");
+checkMiddleSeat("3E");
+
+// // 1.
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
+
+// // 2.
+// const deleteCard = gameEvents.delete(64);
+// console.log(gameEvents);
+
+// // 3.
+// const numberOfEvents = 90 / gameEvents.size;
+// console.log(`An event happened, on average, every ${numberOfEvents} minutes`);
+
+// // 4.
+// for (const [key, value] of gameEvents) {
+//   let half = "";
+//   if (key <= 45) {
+//     half = "[FIRST HALF]";
+//   } else {
+//     half = "[SECOND HALF]";
+//   }
+
+//   console.log(`${half} ${key}: ${value}`);
+// }
 
 // const rest = new Map();
 // rest.set("name", "Classico Italiano");
