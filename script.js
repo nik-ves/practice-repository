@@ -96,6 +96,7 @@ document.body.addEventListener("click", high5);
 
 /////////////////////////////////////////////////////////////////////
 
+/*
 const greet = function (greeting) {
   return function (name) {
     console.log(`${greeting} ${name}`);
@@ -115,3 +116,57 @@ const greet2 = (greeting) => {
 };
 
 greet2("Hey")("Test");
+*/
+
+/////////////////////////////////////////////////////////////////////
+
+const lufthansa = {
+  airline: "Lufthansa",
+  iataCode: "LH",
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}.`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+lufthansa.book(239, "Nikola Veselinovic");
+lufthansa.book(635, "Mike Smith");
+console.log(lufthansa);
+
+const eurowings = {
+  airline: "Eurowings",
+  iataCode: "EW",
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+// Does not work because book is not a method anymore but a function, and in a function call this points to undefined
+// book(23, "Stevan Stevanovic");
+
+// Call method
+book.call(eurowings, 23, "Nikola Nikolic");
+console.log(eurowings);
+
+book.call(lufthansa, 239, "Mary Cooper");
+console.log(lufthansa);
+
+const swiss = {
+  airline: "Swiss Air Lines",
+  iataCode: "LX",
+  bookings: [],
+};
+
+book.call(swiss, 583, "Mary Cooper");
+console.log(swiss);
+
+// Apply method
+const flightData = [583, "George Cooper"];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+book.call(swiss, ...flightData);
+console.log(swiss);
