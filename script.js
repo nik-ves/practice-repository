@@ -30,6 +30,9 @@ createBooking("LH123", 5);
 createBooking("LH123", undefined, 1000);
 */
 
+/////////////////////////////////////////////////////////////////////
+
+/*
 const flight = "LH234";
 const nikola = {
   name: "Nikola Veselinovic",
@@ -57,3 +60,34 @@ const newPassport = function (person) {
 
 newPassport(nikola);
 checkIn(flight, nikola);
+*/
+
+/////////////////////////////////////////////////////////////////////
+
+const oneWord = function (str) {
+  return str.replaceAll(" ", "").toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(" ");
+  return [first.toUpperCase(), ...others].join(" ");
+};
+
+// higher order function
+const transformer = function (str, fn) {
+  console.log(`Original string: ${str}.`);
+  console.log(`Transformed string: ${fn(str)}.`);
+
+  console.log(`Transformed by: ${fn.name}.`);
+  console.log("------------------------------");
+};
+
+transformer("JavaScript is the best!", upperFirstWord);
+transformer("JavaScript is the best!", oneWord);
+
+// JS uses callback all the time
+const high5 = function () {
+  console.log("wave");
+};
+
+document.body.addEventListener("click", high5);
