@@ -291,6 +291,7 @@ poll.displayResaults.call({ answers: [1, 5, 3, 9, 6, 1] }, "string");
 
 /////////////////////////////////////////////////////////////////////
 
+/*
 const runOnce = function () {
   console.log("This will never run again");
 };
@@ -301,3 +302,23 @@ const runOnce = function () {
 })();
 
 (() => console.log("This will never run again also"))();
+*/
+
+/////////////////////////////////////////////////////////////////////
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.dir(booker);
