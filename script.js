@@ -248,6 +248,7 @@ console.log(addVAT2(23));
 
 /////////////////////////////////////////////////////////////////////
 
+/*
 const poll = {
   question: "What is your favourite programming language?",
   options: ["0: JavaScript", "1: Python", "2: Rust", "3: C++"],
@@ -286,3 +287,17 @@ document
 
 poll.displayResaults.call({ answers: [5, 2, 3] }, "string");
 poll.displayResaults.call({ answers: [1, 5, 3, 9, 6, 1] }, "string");
+*/
+
+/////////////////////////////////////////////////////////////////////
+
+const runOnce = function () {
+  console.log("This will never run again");
+};
+
+// IIFE
+(function () {
+  console.log("This will never run again");
+})();
+
+(() => console.log("This will never run again also"))();
