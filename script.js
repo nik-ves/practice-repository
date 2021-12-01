@@ -81,6 +81,16 @@ const displayMovementsHandler = (movements) => {
 
 displayMovementsHandler(account1.movements);
 
+const calcDisplayBalance = (movements) => {
+  const balance = movements.reduce((acc, cur) => {
+    return acc + cur;
+  });
+
+  labelBalance.textContent = `${balance} EUR`;
+};
+
+calcDisplayBalance(account1.movements);
+
 const createUsernames = (accs) => {
   accs.forEach((acc) => {
     acc.username = acc.owner
@@ -265,6 +275,7 @@ console.log(movementsDescriptions);
 
 /////////////////////////////////////////////////
 
+/*
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 const deposits = movements.filter((movement) => {
@@ -278,3 +289,34 @@ const withdrawals = movements.filter((movement) => {
 });
 
 console.log(withdrawals);
+*/
+
+/////////////////////////////////////////////////
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// accumulator => snowball
+// const balance = movements.reduce((accumulator, currentValue, index, array) => {
+//   console.log(`Iteration ${index}: ${accumulator}`);
+//   return accumulator + currentValue;
+// }, 0);
+
+const balance = movements.reduce((acc, cur) => {
+  console.log(acc);
+  return acc + cur;
+}, 0);
+
+console.log(balance);
+
+// Maximum value
+const max = movements.reduce((acc, cur) => {
+  if (acc > cur) {
+    return acc;
+  } else {
+    return cur;
+  }
+}, movements.at(0));
+
+console.log(max);
+
+/////////////////////////////////////////////////
