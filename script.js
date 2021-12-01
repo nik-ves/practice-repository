@@ -81,6 +81,19 @@ const displayMovementsHandler = (movements) => {
 
 displayMovementsHandler(account1.movements);
 
+const createUsernames = (accs) => {
+  accs.forEach((acc) => {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(" ")
+      .map((name) => name.at(0))
+      .join("");
+  });
+};
+
+createUsernames(accounts);
+console.log(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -225,6 +238,9 @@ checkDogs(julia1, kate1);
 checkDogs(julia2, kate2);
 */
 
+/////////////////////////////////////////////////
+
+/*
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 const eurToUsd = 1.1;
@@ -246,3 +262,4 @@ const movementsDescriptions = movements.map((movement, index) => {
 });
 
 console.log(movementsDescriptions);
+*/
