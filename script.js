@@ -92,7 +92,6 @@ const createUsernames = (accs) => {
 };
 
 createUsernames(accounts);
-console.log(accounts);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -263,3 +262,19 @@ const movementsDescriptions = movements.map((movement, index) => {
 
 console.log(movementsDescriptions);
 */
+
+/////////////////////////////////////////////////
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const deposits = movements.filter((movement) => {
+  return movement > 0;
+});
+
+console.log(deposits);
+
+const withdrawals = movements.filter((movement) => {
+  return movement < 0;
+});
+
+console.log(withdrawals);
