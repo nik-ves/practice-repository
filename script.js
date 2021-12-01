@@ -293,6 +293,7 @@ console.log(withdrawals);
 
 /////////////////////////////////////////////////
 
+/*
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // accumulator => snowball
@@ -318,5 +319,36 @@ const max = movements.reduce((acc, cur) => {
 }, movements.at(0));
 
 console.log(max);
+*/
+
+/////////////////////////////////////////////////
+
+// Challenge 2
+
+const juliaDogs = [5, 2, 4, 1, 15, 8, 3];
+const kateDogs = [16, 6, 10, 5, 6, 1, 4];
+
+const calcAverageHumanAge = (ages) => {
+  const ageInHuman = ages.map((age) => {
+    if (age <= 2) {
+      return 2 * age;
+    } else if (age > 2) {
+      return 16 + age * 4;
+    }
+  });
+
+  const aboveAge = ageInHuman.filter((age) => age >= 18);
+
+  const sum = aboveAge.reduce((acc, curr) => {
+    return acc + curr;
+  });
+
+  console.log(
+    `Average human age of all adult dogs is: ${sum / aboveAge.length}`
+  );
+};
+
+calcAverageHumanAge(juliaDogs);
+calcAverageHumanAge(kateDogs);
 
 /////////////////////////////////////////////////
