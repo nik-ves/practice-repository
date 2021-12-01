@@ -75,6 +75,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
+/*
 let arr = ["a", "b", "c", "d", "e"];
 
 // SLICE
@@ -115,3 +116,15 @@ console.log(letters.join("-"));
 // SHIFT
 console.log(arr.shift());
 console.log(arr);
+*/
+
+/////////////////////////////////////////////////
+
+const arr = [23, 11, 64];
+console.log(arr[0]);
+console.log(arr.at(0));
+
+console.log(arr[arr.length - 1]);
+console.log(arr.at(-1));
+
+console.log("nikola".at(-1));
