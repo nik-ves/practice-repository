@@ -192,6 +192,9 @@ currenciesUnique.forEach(function (value, key, set) {
 });
 */
 
+/////////////////////////////////////////////////
+
+/*
 // Challenge 1
 const julia1 = [3, 5, 2, 12, 7];
 const kate1 = [4, 1, 15, 8, 3];
@@ -220,3 +223,26 @@ const checkDogs = (dogsJulia, dogsKate) => {
 
 checkDogs(julia1, kate1);
 checkDogs(julia2, kate2);
+*/
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUsd = 1.1;
+
+// const movementsUSD = movements.map((mov) => {
+//   return mov * eurToUsd;
+//   // return 23;
+// });
+
+const movementsArrow = movements.map((mov) => mov * eurToUsd);
+
+console.log(movements);
+console.log(movementsArrow);
+
+const movementsDescriptions = movements.map((movement, index) => {
+  return `Movement ${index + 1}: You ${
+    movement > 0 ? "deposited" : "withdrew"
+  } ${Math.abs(movement)}`;
+});
+
+console.log(movementsDescriptions);
