@@ -191,3 +191,32 @@ currenciesUnique.forEach(function (value, key, set) {
   console.log(`${key}: ${value}`); // key is the same as value
 });
 */
+
+// Challenge 1
+const julia1 = [3, 5, 2, 12, 7];
+const kate1 = [4, 1, 15, 8, 3];
+
+const julia2 = [9, 16, 6, 8, 3];
+const kate2 = [10, 5, 6, 1, 4];
+
+const checkDogs = (dogsJulia, dogsKate) => {
+  // 1.
+  const dogsJuliaCorrected = [...dogsJulia];
+  dogsJuliaCorrected.shift();
+  dogsJuliaCorrected.splice(2);
+  console.log(dogsJuliaCorrected);
+
+  // 2.
+  const bothData = [...dogsJuliaCorrected, ...dogsKate];
+  console.log(bothData);
+
+  // 3.
+  bothData.forEach((age, index) => {
+    const dog = age >= 3 ? "adult" : "puppy";
+
+    console.log(`Dog number ${index + 1} is a ${dog} and is ${age} years old.`);
+  });
+};
+
+checkDogs(julia1, kate1);
+checkDogs(julia2, kate2);
