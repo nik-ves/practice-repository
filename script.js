@@ -392,6 +392,7 @@ calcAverageHumanAge(kateDogs);
 
 /////////////////////////////////////////////////
 
+/*
 // Challenge 3
 const data1 = [5, 2, 4, 1, 15, 8, 3];
 const data2 = [16, 6, 10, 5, 6, 1, 4];
@@ -409,8 +410,10 @@ const calcAverageHumanAge = (ages) => {
     });
 };
 
+
 calcAverageHumanAge(data1);
 calcAverageHumanAge(data2);
+*/
 
 /////////////////////////////////////////////////
 
@@ -432,5 +435,23 @@ const totalDepositsUSD = movements
 
 console.log(totalDepositsUSD);
 */
+
+/////////////////////////////////////////////////
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const firstWithdrawal = movements.find((element) => {
+  return element < 0;
+});
+
+console.log(firstWithdrawal);
+
+console.log(accounts);
+
+const account = accounts.find((acc) => {
+  return acc.owner === "Jessica Davis";
+});
+
+console.log(account);
 
 /////////////////////////////////////////////////
