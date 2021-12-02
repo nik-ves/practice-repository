@@ -553,6 +553,7 @@ console.log(account);
 
 /////////////////////////////////////////////////
 
+/*
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // EQUALITY
@@ -582,5 +583,44 @@ const deposit = (mov) => mov > 0;
 console.log(movements.some(deposit));
 console.log(movements.every(deposit));
 console.log(movements.filter(deposit));
+*/
 
+/////////////////////////////////////////////////
+
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat(2));
+
+const accountMovements = accounts.map((acc) => {
+  return acc.movements;
+});
+console.log(accountMovements);
+const allMovements = accountMovements.flat();
+console.log(allMovements.flat());
+
+const overalBalance = allMovements.reduce((acc, cur) => {
+  return acc + cur;
+});
+
+// flat
+const overalBalanceChain = accounts
+  .map((acc) => {
+    return acc.movements;
+  })
+  .flat()
+  .reduce((acc, cur) => {
+    return acc + cur;
+  });
+
+const overalBalanceChain2 = accounts
+  .flatMap((acc) => {
+    return acc.movements;
+  })
+  .reduce((acc, cur) => {
+    return acc + cur;
+  });
+
+console.log(overalBalanceChain, overalBalanceChain2);
 /////////////////////////////////////////////////
