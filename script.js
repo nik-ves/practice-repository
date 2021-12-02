@@ -72,7 +72,7 @@ const displayMovementsHandler = (movements) => {
       <div class="movements__type movements__type--${type}">${
       index + 1
     } ${type}</div>
-      <div class="movements__value">${movement}</div>
+      <div class="movements__value">${movement} EUR</div>
     </div>`;
 
     containerMovements.insertAdjacentHTML("afterbegin", html);
@@ -90,6 +90,43 @@ const calcDisplayBalance = (movements) => {
 };
 
 calcDisplayBalance(account1.movements);
+
+const calcDisplaySummary = (movements) => {
+  const incomes = movements
+    .filter((movement) => {
+      return movement > 0;
+    })
+    .reduce((acc, cur) => {
+      return acc + cur;
+    }, 0);
+  labelSumIn.textContent = `${incomes} EUR`;
+
+  const outcome = movements
+    .filter((movement) => {
+      return movement < 0;
+    })
+    .reduce((acc, cur) => {
+      return acc + cur;
+    }, 0);
+  labelSumOut.textContent = `${Math.abs(outcome)} EUR`;
+
+  const interest = movements
+    .filter((movement) => {
+      return movement > 0;
+    })
+    .map((deposit) => {
+      return (deposit * 1.2) / 100;
+    })
+    .filter((int) => {
+      return int >= 1;
+    })
+    .reduce((acc, int) => {
+      return acc + int;
+    }, 0);
+  labelSumInterest.textContent = `${interest} EUR`;
+};
+
+calcDisplaySummary(account1.movements);
 
 const createUsernames = (accs) => {
   accs.forEach((acc) => {
@@ -325,6 +362,7 @@ console.log(max);
 
 // Challenge 2
 
+/*
 const juliaDogs = [5, 2, 4, 1, 15, 8, 3];
 const kateDogs = [16, 6, 10, 5, 6, 1, 4];
 
@@ -350,5 +388,27 @@ const calcAverageHumanAge = (ages) => {
 
 calcAverageHumanAge(juliaDogs);
 calcAverageHumanAge(kateDogs);
+*/
+
+/////////////////////////////////////////////////
+
+/* 
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const eurToUsd = 1.1;
+
+// pipeline
+const totalDepositsUSD = movements
+  .filter((movements) => {
+    return movements > 0;
+  })
+  .map((movement) => {
+    return movement * eurToUsd;
+  })
+  .reduce((acc, cur) => {
+    return acc + cur;
+  });
+
+console.log(totalDepositsUSD);
+*/
 
 /////////////////////////////////////////////////
