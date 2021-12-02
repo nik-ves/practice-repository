@@ -638,6 +638,7 @@ console.log(overalBalanceChain, overalBalanceChain2);
 
 /////////////////////////////////////////////////
 
+/*
 // strings
 const owners = ["Nikola", "Zac", "Adam", "Martha"];
 console.log(owners.sort()); // changes the original array
@@ -669,5 +670,42 @@ movements.sort((a, b) => {
   return b - a;
 });
 console.log(movements);
+*/
+
+/////////////////////////////////////////////////
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+
+const x = new Array(7);
+console.log(x);
+
+// x.fill(1);
+// console.log(x);
+
+x.fill(1, 3, 5);
+console.log(x);
+
+arr.fill(23, 2, 6);
+console.log(arr);
+
+// array.from
+const y = Array.from({ length: 7 }, () => {
+  return 1;
+});
+console.log(y);
+
+const z = Array.from({ length: 7 }, (_, i) => {
+  return i + 1;
+});
+console.log(z);
+
+labelBalance.addEventListener("click", () => {
+  const movementsUI = Array.from(
+    document.querySelectorAll(".movements__value"),
+    (element) => Number(element.textContent.replace("EUR", ""))
+  );
+
+  console.log(movementsUI);
+});
 
 /////////////////////////////////////////////////
