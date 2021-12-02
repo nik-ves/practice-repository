@@ -61,10 +61,12 @@ const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
-const displayMovementsHandler = (movements) => {
+const displayMovementsHandler = (movements, sort = false) => {
   containerMovements.innerHTML = "";
 
-  movements.forEach((movement, index) => {
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach((movement, index) => {
     const type = movement > 0 ? "deposit" : "withdrawal";
 
     const html = `
@@ -233,6 +235,14 @@ btnClose.addEventListener("click", (event) => {
 
     containerApp.style.opacity = 0;
   }
+});
+
+let sorted = false;
+
+btnSort.addEventListener("click", (event) => {
+  event.preventDefault();
+  displayMovementsHandler(currentAccount.movements, !sorted);
+  sorted = !sorted;
 });
 
 /////////////////////////////////////////////////
@@ -587,6 +597,7 @@ console.log(movements.filter(deposit));
 
 /////////////////////////////////////////////////
 
+/*
 const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
 console.log(arr.flat());
 
@@ -623,4 +634,40 @@ const overalBalanceChain2 = accounts
   });
 
 console.log(overalBalanceChain, overalBalanceChain2);
+*/
+
+/////////////////////////////////////////////////
+
+// strings
+const owners = ["Nikola", "Zac", "Adam", "Martha"];
+console.log(owners.sort()); // changes the original array
+console.log(owners);
+
+// numbers
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// console.log(movements.sort());
+
+// return < 0, A, B -- keep order
+// return > 0 B, A -- switch order
+
+// ascending
+movements.sort((a, b) => {
+  return a - b;
+});
+console.log(movements);
+
+// descending
+// movements.sort((a, b) => {
+//   if (a > b) {
+//     return -1;
+//   } else if (b > a) {
+//     return 1;
+//   }
+// });
+
+movements.sort((a, b) => {
+  return b - a;
+});
+console.log(movements);
+
 /////////////////////////////////////////////////
