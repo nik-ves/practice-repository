@@ -195,6 +195,28 @@ btnTransfer.addEventListener("click", (event) => {
   }
 });
 
+btnClose.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  let username = inputCloseUsername.value;
+  let pin = Number(inputClosePin.value);
+
+  inputCloseUsername.value = "";
+  inputClosePin.value = "";
+
+  console.log(username, pin);
+
+  if (username === currentAccount.username && pin === currentAccount.pin) {
+    const index = accounts.findIndex((acc) => {
+      return acc.username === username;
+    });
+
+    accounts.splice(index, 1);
+
+    containerApp.style.opacity = 0;
+  }
+});
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
