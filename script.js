@@ -367,6 +367,7 @@ labelBalance.addEventListener("click", () => {
 
 /////////////////////////////////////////////////
 
+/*
 // 287,460,000,000
 const diametar = 287_460_000_000;
 console.log(diametar);
@@ -384,5 +385,35 @@ console.log(Number("230000"));
 
 console.log(Number("230000"));
 console.log(parseInt("230_000"));
+*/
+
+/////////////////////////////////////////////////
+
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+
+console.log(84129841289124894898942198819498129898n);
+console.log(BigInt(84129841289124894898942198819498129898));
+
+// operations
+console.log(10000n + 10000n);
+console.log(8123921893219831298213988912n * 9128738912731298312n);
+
+// console.log(Math.sqrt(16n));
+
+const huge = 21328719318287831287213n;
+const num = 23;
+console.log(huge * BigInt(num));
+
+// exceptions
+console.log(20n > 15);
+console.log(20n === 20);
+console.log(typeof 20n);
+console.log(20n == 20);
+
+console.log(huge + " is really big");
+
+// division
+console.log(10n / 3n);
 
 /////////////////////////////////////////////////
