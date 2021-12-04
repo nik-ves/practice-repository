@@ -33,6 +33,9 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+///////////////////////////////////////
+
+/*
 console.log(document.documentElement);
 console.log(document.head);
 console.log(document.body);
@@ -107,3 +110,42 @@ logo.classList.contains("c");
 
 // dont use this
 logo.className = "nikola";
+*/
+
+///////////////////////////////////////
+
+const btnScrollTo = document.querySelector(".btn--scroll-to");
+const section1 = document.querySelector("#section--1");
+
+btnScrollTo.addEventListener("click", (event) => {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+
+  // console.log(event.target.getBoundingClientRect());
+
+  // console.log("current scroll (X/Y)", window.pageXOffset, pageYOffset);
+
+  // console.log(
+  //   "height/width viewport",
+  //   document.documentElement.clientHeight,
+  //   document.documentElement.clientWidth
+  // );
+
+  // Scrolling
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+  // );
+
+  // old way
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: "smooth",
+  // });
+
+  // modern way
+  section1.scrollIntoView({
+    behavior: "smooth",
+  });
+});
