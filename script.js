@@ -149,3 +149,21 @@ btnScrollTo.addEventListener("click", (event) => {
     behavior: "smooth",
   });
 });
+
+const h1 = document.querySelector("h1");
+
+const alertH1 = () => {
+  // mouse enter is like a hover
+  alert("addeventlistener: Great");
+};
+
+h1.addEventListener("mouseenter", alertH1);
+
+setTimeout(() => {
+  h1.removeEventListener("mouseenter", alertH1);
+}, 3000);
+
+h1.onmouseenter = () => {
+  // mouse enter is like a hover
+  // alert("onmouseenter: Great");
+};
