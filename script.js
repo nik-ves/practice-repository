@@ -9,6 +9,9 @@ const btnCloseModal = document.querySelector(".btn--close-modal");
 const btnsOpenModal = document.querySelectorAll(".btn--show-modal");
 const btnScrollTo = document.querySelector(".btn--scroll-to");
 const section1 = document.querySelector("#section--1");
+const tabs = document.querySelectorAll(".operations__tab");
+const tabsContainer = document.querySelector(".operations__tab-container");
+const tabsContent = document.querySelectorAll(".operations__content");
 
 const openModal = function (event) {
   event.preventDefault();
@@ -40,6 +43,28 @@ btnScrollTo.addEventListener("click", () => {
   section1.scrollIntoView({
     behavior: "smooth",
   });
+});
+
+tabsContainer.addEventListener("click", function (event) {
+  const clicked = event.target.closest(".operations__tab");
+
+  if (!clicked) {
+    return;
+  }
+
+  // active tab
+  tabs.forEach((tab) => {
+    tab.classList.remove("operations__tab--active");
+  });
+  clicked.classList.add("operations__tab--active");
+
+  // activate content area
+  tabsContent.forEach((content) => {
+    content.classList.remove("operations__content--active");
+  });
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add("operations__content--active");
 });
 
 // Page Navigation
@@ -254,6 +279,7 @@ document.querySelector(".nav").addEventListener("click", function (e) {
 
 ///////////////////////////////////////
 
+/*
 const h1 = document.querySelector("h1");
 
 // Going downwards: child elements
@@ -284,5 +310,6 @@ console.log(h1.parentElement.children);
     el.style.transform = "scale(0.5)";
   }
 });
+*/
 
 ///////////////////////////////////////
