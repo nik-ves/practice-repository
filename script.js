@@ -361,6 +361,7 @@ tesla.accelerate();
 
 /////////////////////////////////////////////////////////
 
+/*
 class PersonCl {
   constructor(fullName, birthYear) {
     this.fullName = fullName;
@@ -427,3 +428,37 @@ class StudentCl extends PersonCl {
 const martha = new StudentCl("Martha Jones", 2012, "Computer Science");
 martha.introduce();
 martha.calcAge();
+*/
+
+/////////////////////////////////////////////////////////
+
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+
+const StudentProto = Object.create(PersonProto);
+
+const jay = Object.create(StudentProto);
+
+StudentProto.init = function (firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+StudentProto.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+jay.init("Jay", 2020, "Computer Science");
+console.log(jay);
+jay.introduce();
+jay.calcAge();
