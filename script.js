@@ -214,6 +214,7 @@ PersonCl.hey();
 
 /////////////////////////////////////////////////////////
 
+/*
 const PersonProto = {
   calcAge() {
     console.log(2037 - this.birthYear);
@@ -236,3 +237,40 @@ console.log(steven.__proto__ === PersonProto);
 const sarah = Object.create(PersonProto);
 sarah.init("Sarah", 1979);
 sarah.calcAge();
+*/
+
+/////////////////////////////////////////////////////////
+
+const CarCl = class {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  accelerate() {
+    let speed = (this.speed += 10);
+    console.log(`${speed} km/h.`);
+  }
+
+  brake() {
+    let speed = (this.speed -= 5);
+    console.log(`${speed} km/h.`);
+  }
+
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+  }
+};
+
+const ford = new CarCl("Ford", 120);
+console.log(ford);
+console.log(ford.speedUS);
+ford.accelerate();
+ford.accelerate();
+ford.brake();
+ford.speedUS = 50;
+console.log(ford);
