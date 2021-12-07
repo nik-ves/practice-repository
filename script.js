@@ -467,33 +467,44 @@ jay.calcAge();
 
 /////////////////////////////////////////////////////////
 
+// 1) Public fields
+// 2) Private fields
+// 3) Public methods
+// 4) Private methods
+// (there is also the static version)
+
 class Account {
+  // 1) Public fields (instances)
+  locale = navigator.language;
+
+  // 2) Private fields (instances)
+  #movements = [];
+  #pin;
+
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
-    this._pin = pin;
     // Protected property
-    this._movements = [];
-    this.locale = navigator.language;
+    this.#pin = pin;
+    // this._movements = [];
+    // this.locale = navigator.language;
 
     console.log(`Thanks for opening an account, ${owner}.`);
   }
 
+  // 3) Public methods
+
   // Public interface
   getMovements() {
-    return this._movements;
+    return this.#movements;
   }
 
   deposit(value) {
-    this._movements.push(value);
+    this.#movements.push(value);
   }
 
   withdraw(value) {
     this.deposit(-value);
-  }
-
-  _approveLoan(value) {
-    return true;
   }
 
   requestLoan(value) {
@@ -501,6 +512,16 @@ class Account {
       this.deposit(value);
       console.log(`Loan approved!`);
     }
+  }
+
+  static helper() {
+    console.log("Helper");
+  }
+
+  // 4) Private methods
+  // #approveLoan(value) {
+  _approveLoan(value) {
+    return true;
   }
 }
 
@@ -515,5 +536,8 @@ acc1.requestLoan(1000);
 console.log(acc1.getMovements());
 
 console.log(acc1);
+// console.log(acc1.#approveLoan(200));
+// console.log(acc1.#pin);
+Account.helper();
 
 /////////////////////////////////////////////////////////
