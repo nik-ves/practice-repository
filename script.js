@@ -27,6 +27,13 @@ console.log(nikola);
 const matilda = new Person("Matilda", 2017);
 const jack = new Person("Jack", 1975);
 
+Person.hey = function () {
+  console.log("Hey there");
+  console.log(this);
+};
+
+Person.hey();
+
 console.log(matilda);
 console.log(jack);
 
@@ -141,6 +148,7 @@ jessica.greet();
 
 /////////////////////////////////////////////////////////
 
+/* 
 const account = {
   owner: "Nikola",
   movements: [200, 530, 120, 300],
@@ -190,7 +198,41 @@ class PersonCl {
   get fullName() {
     return this._fullName;
   }
+
+  // static method
+  static hey() {
+    console.log("Hey there");
+    console.log(this);
+  }
 }
 
 const jessica = new PersonCl("Jessica Davis", 1996);
 const walter = new PersonCl("Walter White", 1965);
+
+PersonCl.hey();
+*/
+
+/////////////////////////////////////////////////////////
+
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+console.log(steven);
+steven.name = "Steven";
+steven.birthYear = 2002;
+steven.calcAge();
+
+console.log(steven.__proto__ === PersonProto);
+
+const sarah = Object.create(PersonProto);
+sarah.init("Sarah", 1979);
+sarah.calcAge();
