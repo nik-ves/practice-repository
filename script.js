@@ -30,3 +30,71 @@ console.log(matilda);
 console.log(jack);
 
 console.log(nikola instanceof Person);
+
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+console.log(Person.prototype);
+
+nikola.calcAge();
+matilda.calcAge();
+
+console.log(nikola.__proto__);
+
+Person.prototype.species = "Homo Sapiens";
+console.log(nikola.species, matilda.species);
+
+console.log(nikola.hasOwnProperty("firstName"));
+console.log(nikola.hasOwnProperty("species"));
+
+// Prototypal inheritance on built-in objects
+console.log("============================================");
+
+console.log(nikola.__proto__); // Person.prototype
+console.log(nikola.__proto__.__proto__); // Object.prototype - top
+console.log(nikola.__proto__.__proto__.__proto__); // null
+
+// console.dir(Person.prototype.constructor);
+
+const arr = [3, 6, 5, 6, 9, 3, 6, 9]; // new Array === []
+console.log(arr.__proto__);
+console.log(arr.__proto__ === Array.prototype);
+
+console.log(arr.__proto__.__proto__);
+
+Array.prototype.unique = function () {
+  return [...new Set(this)];
+};
+
+console.log(arr.unique());
+
+const h1 = document.querySelector("h1");
+console.dir(h1);
+console.dir((x) => x + 1);
+
+// Challenge 1
+
+const Car = function (make, speed) {
+  (this.make = make), (this.speed = speed);
+};
+
+Car.prototype.accelerate = function () {
+  return console.log((this.speed += 10));
+};
+
+Car.prototype.brake = function () {
+  return console.log((this.speed -= 10));
+};
+
+const bmw = new Car("BMW", 120);
+const mercedes = new Car("Mercedes", 95);
+
+bmw.accelerate();
+bmw.accelerate();
+bmw.brake();
+bmw.brake();
+
+mercedes.accelerate();
+mercedes.accelerate();
+mercedes.brake();
