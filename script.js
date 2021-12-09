@@ -99,6 +99,10 @@ getCountryAndNeighbour("usa");
 // request.open("GET", `https://restcountries.com/v2/name/${country}`);
 // request.send();
 
+const renderError = function (msg) {
+  countriesContainer.insertAdjacentText("beforeend", msg);
+};
+
 const renderCountry = function (data, className) {
   let html = `
 <article class="country ${className}">
@@ -115,7 +119,6 @@ const renderCountry = function (data, className) {
 </article>`;
 
   countriesContainer.insertAdjacentHTML("beforeend", html);
-  countriesContainer.style.opacity = 1;
 };
 
 const request = fetch(`https://restcountries.com/v2/name/serbia`);
@@ -147,8 +150,18 @@ const getCountryData = function (country) {
       return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
     })
     .then((response) => response.json()) // response data needs to be converted to json format
-    .then((data) => renderCountry(data, "neighbour"));
+    .then((data) => renderCountry(data, "neighbour"))
+    .catch((err) => {
+      console.error(`${err} is error`);
+      renderError(`Something went wrong. ${err.message}. Try again.`);
+    })
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
+    });
 };
 
-getCountryData("serbia");
-// getCountryData("germany");
+btn.addEventListener("click", function () {
+  getCountryData("serbia");
+});
+
+getCountryData("ssadas");
