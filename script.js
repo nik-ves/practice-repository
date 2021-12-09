@@ -106,15 +106,15 @@ const renderError = function (msg) {
 const renderCountry = function (data, className) {
   let html = `
 <article class="country ${className}">
-  <img class="country__img" src="${data.flag}" />
+  <img class="country__img" src="${data.flags[0]}" />
     <div class="country__data">
-      <h3 class="country__name">${data.name}</h3>
+      <h3 class="country__name">${data.name.oficial}</h3>
       <h4 class="country__region">${data.region}</h4>
       <p class="country__row"><span>👫</span>${(
         +data.population / 1000000
       ).toFixed(1)}M people.</p>
-      <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
-      <p class="country__row"><span>💰</span>${data.currencies[0].name}</p>
+      <p class="country__row"><span>🗣️</span>${data.languages.srp}</p>
+      
     </div>
 </article>`;
 
@@ -122,7 +122,6 @@ const renderCountry = function (data, className) {
 };
 
 const request = fetch(`https://restcountries.com/v2/name/serbia`);
-console.log(request);
 
 // const getCountryData = function (country) {
 //   fetch(`https://restcountries.com/v2/name/${country}`)
@@ -136,24 +135,72 @@ console.log(request);
 //     });
 // };
 
+const getJSON = function (url, errorMsg = "Something went wrong!") {
+  return fetch(url).then((response) => {
+    // response data needs to be converted to json format
+    if (!response.ok) {
+      throw new Error(`${errorMsg} (${response.status}).`);
+    }
+
+    return response.json();
+  });
+};
+
+// const getCountryData = function (country) {
+//   // country 1
+//   fetch(`https://restcountries.com/v3/name/${country}`)
+//     .then((response) => {
+//       console.log(response);
+
+//       if (!response.ok) {
+//         throw new Error(`Country not found (${response.status}).`);
+//       }
+
+//       return response.json();
+//     }) // response data needs to be converted to json format
+//     .then((data) => {
+//       renderCountry(data[0]);
+//       const neighbour = "asdsad";
+//       // const neighbour = data[0].borders[0];
+
+//       if (!neighbour) return;
+
+//       // country 2
+//       return fetch(`https://restcountries.com/v3/alpha/${neighbour}`);
+//     })
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error(`Country not found (${response.status}).`);
+//       }
+//       return response.json();
+//     }) // response data needs to be converted to json format
+//     .then((data) => renderCountry(data[0], "neighbour"))
+//     .catch((err) => {
+//       console.error(`${err} is error`);
+//       renderError(`Something went wrong. ${err.message} Try again.`);
+//     })
+//     .finally(() => {
+//       countriesContainer.style.opacity = 1;
+//     });
+// };
+
 const getCountryData = function (country) {
   // country 1
-  fetch(`https://restcountries.com/v2/name/${country}`)
-    .then((response) => response.json()) // response data needs to be converted to json format
+  getJSON(`https://restcountries.com/v3/name/${country}`, "Country not found")
     .then((data) => {
       renderCountry(data[0]);
+      // const neighbour = "asdsad";
       const neighbour = data[0].borders[0];
 
-      if (!neighbour) return;
+      if (!neighbour) throw new Error("No neighbour found");
 
       // country 2
-      return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
+      return getJSON(`https://restcountries.com/v3/alpha/${neighbour}`);
     })
-    .then((response) => response.json()) // response data needs to be converted to json format
-    .then((data) => renderCountry(data, "neighbour"))
+    .then((data) => renderCountry(data[0], "neighbour"))
     .catch((err) => {
       console.error(`${err} is error`);
-      renderError(`Something went wrong. ${err.message}. Try again.`);
+      renderError(`Something went wrong. ${err.message} Try again.`);
     })
     .finally(() => {
       countriesContainer.style.opacity = 1;
@@ -161,7 +208,7 @@ const getCountryData = function (country) {
 };
 
 btn.addEventListener("click", function () {
-  getCountryData("serbia");
+  // getCountryData("portugal");
 });
 
-getCountryData("ssadas");
+getCountryData("australia");
