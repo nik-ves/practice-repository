@@ -373,6 +373,7 @@ console.log("3: Finished getting location");
 
 ///////////////////////////////////////
 
+/*
 const getJSON = function (url, errorMsg = "Something went wrong!") {
   return fetch(url).then((response) => {
     // response data needs to be converted to json format
@@ -407,5 +408,57 @@ const get3Countries = async function (c1, c2, c3) {
 };
 
 get3Countries("portugal", "serbia", "canada");
+*/
+
+///////////////////////////////////////
+
+const getJSON = function (url, errorMsg = "Something went wrong!") {
+  return fetch(url).then((response) => {
+    // response data needs to be converted to json format
+    if (!response.ok) {
+      throw new Error(`${errorMsg} (${response.status}).`);
+    }
+
+    return response.json();
+  });
+};
+
+// Promise.race
+(async function () {
+  const res = await Promise.race([
+    getJSON(`https://restcountries.com/v2/name/italy`),
+    getJSON(`https://restcountries.com/v2/name/greece`),
+    getJSON(`https://restcountries.com/v2/name/egypt`),
+  ]);
+  console.log(res[0]);
+})();
+
+const timeout = function (sec) {
+  return new Promise(function (_, reject) {
+    setTimeout(() => {
+      reject(new Error("request too long"));
+    }, sec * 1000);
+  });
+};
+
+Promise.race([getJSON(`https://restcountries.com/v2/name/egypt`), timeout(0.1)])
+  .then((res) => console.log(res[0]))
+  .catch((err) => console.log(err));
+
+// Promise.allSettled
+Promise.allSettled([
+  Promise.resolve("Success"),
+  Promise.reject("Error"),
+  Promise.resolve("Success"),
+  Promise.resolve("Success"),
+]).then((response) => console.log(response));
+
+// Promise.any [ES2021]
+Promise.any([
+  Promise.resolve("Prvi"),
+  Promise.reject("Error"),
+  Promise.resolve("Drugi"),
+  Promise.resolve("Treci"),
+]).then((response) => console.log(response));
 
 ///////////////////////////////////////
