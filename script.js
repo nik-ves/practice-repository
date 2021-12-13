@@ -237,6 +237,7 @@ console.log("Test end");
 
 ///////////////////////////////////////
 
+/*
 const lotteryPromise = new Promise(function (resolve, reject) {
   console.log("Lotery draw is happening!");
   setTimeout(() => {
@@ -270,5 +271,26 @@ wait(2)
 
 Promise.resolve("abc").then((response) => console.log(response));
 Promise.reject("abc").catch((error) => console.error(error));
+*/
+
+///////////////////////////////////////
+
+console.log("Getting position");
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    // navigator.geolocation.getCurrentPosition(
+    //   (position) => resolve(position),
+    //   (err) => reject(err)
+    // );
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+getPosition().then((pos) => console.log(pos));
+getPosition().then((position) => {
+  const coords = position.coords;
+  console.log(coords.latitude);
+});
 
 ///////////////////////////////////////
