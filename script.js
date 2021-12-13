@@ -219,6 +219,7 @@ getCountryData("australia");
 
 ///////////////////////////////////////
 
+/*
 console.log("Test start");
 setTimeout(() => {
   console.log("0 sec timer");
@@ -232,5 +233,42 @@ Promise.resolve("Resolved promise 2").then((response) => {
 });
 
 console.log("Test end");
+*/
+
+///////////////////////////////////////
+
+const lotteryPromise = new Promise(function (resolve, reject) {
+  console.log("Lotery draw is happening!");
+  setTimeout(() => {
+    if (Math.random() >= 0.5) {
+      resolve("You win!");
+    } else {
+      reject(new Error("You lose!"));
+    }
+  }, 2000);
+});
+
+lotteryPromise
+  .then((response) => console.log(response))
+  .catch((error) => console.log(error));
+
+// Promisifying setTiemout
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+wait(2)
+  .then(() => {
+    console.log("I waited for 2 seconds.");
+    return wait(1);
+  })
+  .then(() => {
+    console.log("I waited for 1 seconds.");
+  });
+
+Promise.resolve("abc").then((response) => console.log(response));
+Promise.reject("abc").catch((error) => console.error(error));
 
 ///////////////////////////////////////
