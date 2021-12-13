@@ -328,19 +328,37 @@ getPosition().then((position) => {
   // console.log(coords.latitude);
 });
 
+const renderError = function (msg) {
+  countriesContainer.insertAdjacentText("beforeend", msg);
+};
+
 const whereAmI = async function (country) {
-  const position = await getPosition();
-  const { latitude: lat, longitude: lng } = position.coords;
+  try {
+    const position = await getPosition();
+    const { latitude: lat, longitude: lng } = position.coords;
 
-  const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
-  const dataGeo = await resGeo.json();
+    const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    const dataGeo = await resGeo.json();
+    if (!resGeo.ok) throw new Error("Ne moze");
 
-  const res = await fetch(`https://restcountries.com/v2/name/${country}`);
-  const data = await res.json();
-  renderCountry(data[0]);
+    const res = await fetch(`https://restcountries.com/v2/name/${country}`);
+    const data = await res.json();
+    renderCountry(data[0]);
+  } catch (error) {
+    console.log(error);
+    renderError(`Something went wrong! ${error.message}`);
+  }
 };
 
 whereAmI("serbia");
 console.log("First");
+
+// try {
+//   let y = 1;
+//   const x = 2;
+//   y = 3;
+// } catch (error) {
+//   console.log(error);
+// }
 
 ///////////////////////////////////////
