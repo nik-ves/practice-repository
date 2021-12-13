@@ -95,6 +95,7 @@ getCountryAndNeighbour("usa");
 
 ///////////////////////////////////////
 
+/*
 // const request = new XMLHttpRequest();
 // request.open("GET", `https://restcountries.com/v2/name/${country}`);
 // request.send();
@@ -134,6 +135,7 @@ const request = fetch(`https://restcountries.com/v2/name/serbia`);
 //       renderCountry(data[0]);
 //     });
 // };
+
 
 const getJSON = function (url, errorMsg = "Something went wrong!") {
   return fetch(url).then((response) => {
@@ -184,6 +186,7 @@ const getJSON = function (url, errorMsg = "Something went wrong!") {
 //     });
 // };
 
+
 const getCountryData = function (country) {
   // country 1
   getJSON(`https://restcountries.com/v3/name/${country}`, "Country not found")
@@ -212,3 +215,22 @@ btn.addEventListener("click", function () {
 });
 
 getCountryData("australia");
+*/
+
+///////////////////////////////////////
+
+console.log("Test start");
+setTimeout(() => {
+  console.log("0 sec timer");
+}, 0);
+Promise.resolve("Resolved promise 1").then((response) => console.log(response));
+
+Promise.resolve("Resolved promise 2").then((response) => {
+  for (let i = 0; i < 1000000000; i++) {}
+
+  console.log(response);
+});
+
+console.log("Test end");
+
+///////////////////////////////////////
