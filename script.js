@@ -1,4 +1,3 @@
-/*
 // // Importing module
 // import {
 //   addToCart,
@@ -41,13 +40,10 @@ console.log(lastPost);
 // not very clean
 lastPost.then((last) => console.log(last));
 
-const lastPost2 = await getLastPost();
-console.log(lastPost2);
-*/
-
 //////////////////////////////////////////////
 
-import cloneDeep from "./node_modules/lodash-es/cloneDeep.js";
+// import cloneDeep from "./node_modules/lodash-es/cloneDeep.js";
+import cloneDeep from "lodash-es";
 
 const state = {
   cart: [
@@ -64,3 +60,11 @@ console.log(stateClone);
 state.user.loggedIn = false;
 
 console.log(stateDeepClone);
+
+//////////////////////////////////////////////
+
+// code that only parcel understands
+// prevents reloading on save
+if (module.hot) {
+  module.hot.accept();
+}
