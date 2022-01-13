@@ -1,4 +1,4 @@
-16566
+16568
 62D:\Projekti\GitHub clone\GitHub\practice-repository\.gitignore132839471314235280 0
 90D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\har-schema\lib\entry.json132839478033091974 0
 89D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\querystring-es3\index.js132839477995898968 0
@@ -6,7 +6,7 @@
 97D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\htmlnano\docs\docs\030-config.md132839478066409064 0
 72D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\connect132839478025421354 1
 78D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\pako\index.js132839478035382142 0
-61D:\Projekti\GitHub clone\GitHub\practice-repository\script.js132839489285421833 0
+61D:\Projekti\GitHub clone\GitHub\practice-repository\script.js132865849624860169 0
 133D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\uncss\node_modules\postcss-selector-parser\dist\selectors\nesting.js132839478064768926 0
 96D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\@parcel\utils\src\getRootDir.js132839478062458733 0
 89D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\postcss-minify-gradients132839478013570402 1
@@ -17,7 +17,7 @@
 135D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\uncss\node_modules\postcss-selector-parser\dist\__tests__\universal.js132839478059448510 0
 132D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\postcss-modules-local-by-default\node_modules\ansi-styles\readme.md132839477994671065 0
 103D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\type-fest\source\conditional-keys.d.ts132839478032601930 0
-64D:\Projekti\GitHub clone\GitHub\practice-repository\package.json132839489654149830 0
+64D:\Projekti\GitHub clone\GitHub\practice-repository\package.json132839489996478010 0
 87D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\lodash\fp\snakeCase.js132839478132884460 0
 105D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\verror\node_modules\core-util-is\test.js132839478013220359 0
 101D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\highlight.js\lib\languages\avrasm.js132839478079820146 0
@@ -67,7 +67,7 @@
 130D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\postcss-modules-values\node_modules\source-map\lib\source-node.js132839478037322315 0
 84D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\verror\node_modules132839477911011831 1
 103D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\postcss-normalize-string\dist\index.js132839477983608135 0
-56D:\Projekti\GitHub clone\GitHub\practice-repository\dist132839489687328595 1
+56D:\Projekti\GitHub clone\GitHub\practice-repository\dist132865849659465787 1
 96D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\process-nextick-args\license.md132839477986668380 0
 107D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\core-js\modules\esnext.array.last-index.js132839478121363498 0
 98D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\core-js\es\typed-array\methods.js132839478146565515 0
@@ -11659,6 +11659,7 @@
 100D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\es-abstract\helpers\assertRecord.js132839478071969524 0
 94D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\es-abstract\helpers\assign.js132839478072179530 0
 99D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\abortcontroller-polyfill\README.md132839478038612421 0
+78D:\Projekti\GitHub clone\GitHub\practice-repository\dist\index.39c2479a.js.map132839490138384851 0
 95D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\es-abstract\helpers\forEach.js132839478102171988 0
 96D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\domutils\lib\stringify.d.ts.map132839478041952672 0
 104D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\core-js\es\typed-array\float64-array.js132839478131344322 0
@@ -16562,6 +16563,7 @@
 79D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\.bin\uncss.ps1132839478159056530 0
 79D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\.bin\which.cmd132839478159066537 0
 79D:\Projekti\GitHub clone\GitHub\practice-repository\node_modules\.bin\which.ps1132839478159066537 0
-74D:\Projekti\GitHub clone\GitHub\practice-repository\dist\index.5d140dba.js132839489687268611 0
-78D:\Projekti\GitHub clone\GitHub\practice-repository\dist\index.5d140dba.js.map132839489687318616 0
-67D:\Projekti\GitHub clone\GitHub\practice-repository\dist\index.html132839489685318668 0
+74D:\Projekti\GitHub clone\GitHub\practice-repository\dist\index.39c2479a.js132839490138234838 0
+74D:\Projekti\GitHub clone\GitHub\practice-repository\dist\index.5d140dba.js132865849659175664 0
+78D:\Projekti\GitHub clone\GitHub\practice-repository\dist\index.5d140dba.js.map132865849659355726 0
+67D:\Projekti\GitHub clone\GitHub\practice-repository\dist\index.html132865849657225565 0

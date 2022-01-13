@@ -43,7 +43,7 @@ lastPost.then((last) => console.log(last));
 //////////////////////////////////////////////
 
 // import cloneDeep from "./node_modules/lodash-es/cloneDeep.js";
-import cloneDeep from "lodash-es";
+// import cloneDeep from "lodash-es";
 
 const state = {
   cart: [
@@ -54,17 +54,32 @@ const state = {
 };
 
 const stateClone = Object.assign({}, state);
-const stateDeepClone = cloneDeep(state);
+// const stateDeepClone = cloneDeep(state);
 console.log(stateClone);
 
 state.user.loggedIn = false;
 
-console.log(stateDeepClone);
+// console.log(stateDeepClone);
 
 //////////////////////////////////////////////
 
 // code that only parcel understands
 // prevents reloading on save
-if (module.hot) {
-  module.hot.accept();
+// if (module.hot) {
+//   module.hot.accept();
+// }
+
+class Person {
+  greeting = "Hey";
+  constructor(name) {
+    this.name = name;
+    console.log(`${this.greeting} ,${this.name}`);
+  }
 }
+
+const nikola = new Person("Nikola");
+console.log(nikola);
+console.log(cart.find((el) => el.quantity >= 2));
+Promise.resolve("TEST").then((x) => console.log(x));
+
+import "core-js/stable";
