@@ -1,0 +1,25 @@
+{
+  "name": "practice-repository",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.js",
+    "build": "parcel build index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nik-ves/practice-repository.git"
+  },
+  "author": "Nikola Veselinovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nik-ves/practice-repository/issues"
+  },
+  "homepage": "https://github.com/nik-ves/practice-repository#readme",
+  "devDependencies": {
+    "@parcel/transformer-image": "^2.0.0-rc.0",
+    "@parcel/transformer-sass": "^2.0.0-rc.0",
+    "parcel": "^2.0.0-rc.0"
+  }
+}
