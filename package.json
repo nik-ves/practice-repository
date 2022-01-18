@@ -1,38 +1,38 @@
 {
-  "name": "practice-repository",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "parcel index.js",
-    "build": "parcel build index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nik-ves/practice-repository.git"
-  },
-  "author": "Nikola Veselinovic",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nik-ves/practice-repository/issues"
-  },
-  "homepage": "https://github.com/nik-ves/practice-repository#readme",
-  "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.13.0",
-    "@babel/plugin-proposal-private-methods": "^7.13.0",
-    "@parcel/transformer-image": "^2.0.0-rc.0",
-    "@parcel/transformer-sass": "^2.0.0-rc.0",
-    "parcel": "^2.0.0-rc.0"
-  },
+  "name": "redux-basics",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "core-js": "^3.20.2",
-    "fractional": "^1.0.0",
-    "regenerator-runtime": "^0.13.9"
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.6.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.2",
+    "web-vitals": "^1.1.0"
   },
-  "babel": {
-    "plugins": [
-      "@babel/plugin-proposal-class-properties",
-      "@babel/plugin-proposal-private-methods"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   }
 }
