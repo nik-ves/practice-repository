@@ -14,13 +14,21 @@ export default function App() {
     ]);
   };
 
+  const deleteGoalHandler = (goalId) => {
+    setCourseGoals((currentGoals) => {
+      return currentGoals.filter((goal) => goal.id !== goalId);
+    });
+  };
+
   return (
     <View style={styles.screen}>
       <GoalInput onAddGoal={addGoalHandler} />
 
       <FlatList
         data={courseGoals}
-        renderItem={(itemData) => <GoalItem title={itemData.item.value} />}
+        renderItem={(itemData) => (
+          <GoalItem onDeleteGoal={deleteGoalHandler} data={itemData.item} />
+        )}
       ></FlatList>
     </View>
   );
@@ -28,6 +36,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   screen: {
-    padding: 30,
+    padding: 40,
   },
 });
