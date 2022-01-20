@@ -1,53 +1,16 @@
-// import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
-import { StyleSheet, View, FlatList, Button } from "react-native";
-import GoalInput from "./components/GoalInput";
-import GoalItem from "./components/GoalItem";
+import { StyleSheet, View } from "react-native";
+import Header from "./components/Header";
 
 export default function App() {
-  const [courseGoals, setCourseGoals] = useState([]);
-  const [isAddMode, setIsAddMode] = useState(false);
-
-  const addGoalHandler = (goalTitle) => {
-    setCourseGoals((currentGoals) => [
-      ...currentGoals,
-      { id: Math.random().toString(), value: goalTitle },
-    ]);
-    setIsAddMode(false);
-  };
-
-  const deleteGoalHandler = (goalId) => {
-    setCourseGoals((currentGoals) => {
-      return currentGoals.filter((goal) => goal.id !== goalId);
-    });
-  };
-
-  const cancelGoalAdditionHandler = () => {
-    setIsAddMode(false);
-  };
-
   return (
     <View style={styles.screen}>
-      <Button title="Add New Goal" onPress={() => setIsAddMode(true)} />
-
-      <GoalInput
-        onAddGoal={addGoalHandler}
-        onCancel={cancelGoalAdditionHandler}
-        visible={isAddMode}
-      />
-
-      <FlatList
-        data={courseGoals}
-        renderItem={(itemData) => (
-          <GoalItem onDeleteGoal={deleteGoalHandler} data={itemData.item} />
-        )}
-      ></FlatList>
+      <Header title="Guess A Number" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   screen: {
-    padding: 40,
+    flex: 1,
   },
 });
