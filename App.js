@@ -13,6 +13,7 @@ export default function App() {
       ...currentGoals,
       { id: Math.random().toString(), value: goalTitle },
     ]);
+    setIsAddMode(false);
   };
 
   const deleteGoalHandler = (goalId) => {
@@ -21,11 +22,19 @@ export default function App() {
     });
   };
 
+  const cancelGoalAdditionHandler = () => {
+    setIsAddMode(false);
+  };
+
   return (
     <View style={styles.screen}>
       <Button title="Add New Goal" onPress={() => setIsAddMode(true)} />
 
-      <GoalInput onAddGoal={addGoalHandler} visible={isAddMode} />
+      <GoalInput
+        onAddGoal={addGoalHandler}
+        onCancel={cancelGoalAdditionHandler}
+        visible={isAddMode}
+      />
 
       <FlatList
         data={courseGoals}
@@ -40,6 +49,5 @@ export default function App() {
 const styles = StyleSheet.create({
   screen: {
     padding: 40,
-    backgroundColor: "#ccc",
   },
 });
