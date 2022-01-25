@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, SafeAreaView } from "react-native";
 import * as Font from "expo-font"; // mozda treba da se instalira
 import AppLoading from "expo-app-loading";
 
@@ -60,11 +60,11 @@ export default function App() {
   }
 
   return (
-    <View style={styles.screen}>
+    <SafeAreaView style={styles.screen}>
       <Header title="Guess A Number" />
 
       {content}
-    </View>
+    </SafeAreaView>
   );
 }
 
