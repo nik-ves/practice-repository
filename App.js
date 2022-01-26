@@ -2,6 +2,9 @@ import { StyleSheet, View, Text } from "react-native";
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 import { useState } from "react";
+import { enableScreens } from "react-native-screens";
+
+enableScreens();
 
 import MealsNavigator from "./navigation/MealsNavigator";
 

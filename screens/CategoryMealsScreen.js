@@ -1,5 +1,4 @@
 import { Text, View, StyleSheet, Button } from "react-native";
-import Colors from "../constants/Colors";
 
 import { CATEGORIES } from "../data/dummy-data";
 
@@ -27,10 +26,6 @@ CategoryMealsScreen.navigationOptions = (navigationData) => {
 
   return {
     headerTitle: selectedCategory.title,
-    headerStyle: {
-      backgroundColor: Colors.primaryColor,
-    },
-    headerTintColor: "white",
   };
 };
 
