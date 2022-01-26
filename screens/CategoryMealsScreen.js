@@ -1,9 +1,9 @@
 import { Text, View, StyleSheet, Button } from "react-native";
 
-const CategoriesMealsScreen = (props) => {
+const CategoryMealsScreen = (props) => {
   return (
     <View style={styles.screen}>
-      <Text>The categories meals screen!</Text>
+      <Text>The category meals screen!</Text>
 
       <Button
         title="Go to meal detail!"
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CategoriesMealsScreen;
+export default CategoryMealsScreen;
