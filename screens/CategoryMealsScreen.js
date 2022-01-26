@@ -1,9 +1,15 @@
 import { Text, View, StyleSheet, Button } from "react-native";
+import Colors from "../constants/Colors";
+
+import { CATEGORIES } from "../data/dummy-data";
 
 const CategoryMealsScreen = (props) => {
+  const catId = props.navigation.getParam("categoryId");
+  const selectedCategory = CATEGORIES.find((category) => category.id === catId);
+
   return (
     <View style={styles.screen}>
-      <Text>The category meals screen!</Text>
+      <Text>{selectedCategory.title}</Text>
 
       <Button
         title="Go to meal detail!"
@@ -13,6 +19,19 @@ const CategoryMealsScreen = (props) => {
       />
     </View>
   );
+};
+
+CategoryMealsScreen.navigationOptions = (navigationData) => {
+  const catId = navigationData.navigation.getParam("categoryId");
+  const selectedCategory = CATEGORIES.find((cat) => cat.id === catId);
+
+  return {
+    headerTitle: selectedCategory.title,
+    headerStyle: {
+      backgroundColor: Colors.primaryColor,
+    },
+    headerTintColor: "white",
+  };
 };
 
 const styles = StyleSheet.create({

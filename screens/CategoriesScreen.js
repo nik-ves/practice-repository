@@ -16,7 +16,12 @@ const CategoriesScreen = (props) => {
         style={styles.gridItem}
         activeOpacity={0.6}
         onPress={() => {
-          props.navigation.navigate({ routeName: "CategoryMeals" });
+          props.navigation.navigate({
+            routeName: "CategoryMeals",
+            params: {
+              categoryId: itemData.item.id,
+            },
+          });
         }}
       >
         <View>
