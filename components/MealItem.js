@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ccc",
     borderRadius: 10,
     overflow: "hidden",
-    marginBottom: 20, // test
+    marginVertical: 10,
   },
   bgImage: {
     width: "100%",

@@ -40,11 +40,11 @@ const styles = StyleSheet.create({
     height: 150,
     borderRadius: 10,
     overflow: "hidden",
+    elevation: 10,
   },
   container: {
     flex: 1,
     borderRadius: 10,
-    elevation: 10,
     padding: 15,
     justifyContent: "flex-end",
     alignItems: "flex-end",
