@@ -1,4 +1,5 @@
 import { StyleSheet, View, Text } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
@@ -33,5 +34,15 @@ export default function App() {
     />;
   }
 
-  return <MealsNavigator />;
+  return (
+    <View style={styles.screen}>
+      <MealsNavigator />
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
+});
