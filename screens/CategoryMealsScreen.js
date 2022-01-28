@@ -1,13 +1,14 @@
-import { Text, View, StyleSheet, FlatList } from "react-native";
-
-import { CATEGORIES, MEALS } from "../data/dummy-data";
-
+import { StyleSheet } from "react-native";
+import { useSelector } from "react-redux";
+import { CATEGORIES } from "../data/dummy-data";
 import MealList from "../components/MealList";
 
 const CategoryMealsScreen = (props) => {
+  const availableMeals = useSelector((state) => state.meals.filteredMeals);
+
   const catId = props.navigation.getParam("categoryId");
 
-  const displayedMeals = MEALS.filter(
+  const displayedMeals = availableMeals.filter(
     (meal) => meal.categoryIds.indexOf(catId) >= 0
   );
 

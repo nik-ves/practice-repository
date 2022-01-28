@@ -1,15 +1,24 @@
 import { StyleSheet, View, Text } from "react-native";
-import { StatusBar } from "expo-status-bar";
-
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 import { useEffect, useState } from "react";
 import { enableScreens } from "react-native-screens";
 import { LogBox } from "react-native";
 
+import MealsNavigator from "./navigation/MealsNavigator";
+import mealsReducer from "./store/reducers/meals";
+
+import { createStore, combineReducers } from "redux"; //
+import { Provider } from "react-redux"; //
+
 enableScreens();
 
-import MealsNavigator from "./navigation/MealsNavigator";
+const rootReducer = combineReducers({
+  //
+  meals: mealsReducer,
+});
+
+const store = createStore(rootReducer); //
 
 const fetchFonts = () => {
   useEffect(() => {
@@ -35,14 +44,8 @@ export default function App() {
   }
 
   return (
-    <View style={styles.screen}>
+    <Provider store={store}>
       <MealsNavigator />
-    </View>
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-  },
-});
