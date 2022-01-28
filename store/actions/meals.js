@@ -1,8 +1,8 @@
-export const TOGGLE_FAVOTITE = "TOGGLE_FAVORITE";
+export const TOGGLE_FAVORITE = "TOGGLE_FAVORITE";
 
 export const toggleFavorite = (id) => {
   return {
-    type: TOGGLE_FAVOTITE,
+    type: TOGGLE_FAVORITE,
     mealId: id,
   };
 };

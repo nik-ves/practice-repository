@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import CustomHeaderButton from "../components/HeaderButton";
 import Colors from "../constants/Colors";
@@ -9,6 +9,14 @@ import MealList from "../components/MealList";
 
 const FavoritesScreen = (props) => {
   const favMeals = useSelector((state) => state.meals.favoriteMeals);
+
+  if (favMeals.length === 0 || !favMeals) {
+    return (
+      <View style={styles.content}>
+        <Text>No favorite meals found. Start adding some!</Text>
+      </View>
+    );
+  }
 
   return <MealList listData={favMeals} navigation={props.navigation} />;
 };
@@ -36,7 +44,7 @@ FavoritesScreen.navigationOptions = (navData) => {
 };
 
 const styles = StyleSheet.create({
-  screen: {
+  content: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
