@@ -1,25 +1,22 @@
 {
-  "name": "node-farm",
+  "name": "practice-repository",
   "version": "1.0.0",
-  "description": "Learning node.js",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nik-ves/practice-repository.git"
   },
-  "author": "Nikola Veselinovic",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nik-ves/practice-repository/issues"
   },
   "homepage": "https://github.com/nik-ves/practice-repository#readme",
   "dependencies": {
-    "slugify": "^1.6.5"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
+    "express": "^4.17.3"
   }
 }
