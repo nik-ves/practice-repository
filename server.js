@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const app = require("./App");
 
 dotenv.config({ path: "./config.env" });
+const app = require("./App");
 
 const DB = process.env.BAZA.replace("<SIFRA>", process.env.SIFRA);
 
