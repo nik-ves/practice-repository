@@ -91,6 +91,7 @@ exports.updateTour = async (req, res) => {
   }
 };
 
+// Aggregations
 exports.deleteTour = async (req, res) => {
   try {
     await Tour.findByIdAndDelete(req.params.id);
