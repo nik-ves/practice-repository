@@ -1,47 +1,58 @@
-const fs = require("fs");
+const Tour = require("../models/tourModel");
 
-const tours = JSON.parse(
-  fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
-);
+exports.getAllTours = async (req, res) => {
+  try {
+    const tours = await Tour.find();
 
-exports.getAllTours = (req, res) => {
-  res.status(200).json({
-    status: "success",
-    results: tours.length,
-    data: {
-      tours,
-    },
-  });
-};
-
-exports.getOneTour = (req, res) => {
-  // req.params.id is a string so it needs to be converted to a number
-  const tour = tours.find((tour) => tour.id === +req.params.id);
-
-  if (+req.params.id > tours.length) {
-    return res.status(404).json({
+    res.status(200).json({
+      status: "success",
+      length: tours.length,
+      data: {
+        tours,
+      },
+    });
+  } catch (error) {
+    res.status(404).json({
       status: "fail",
-      message: "Invalid ID.",
+      message: error.message,
     });
   }
-
-  res.status(200).json({
-    status: "success",
-    data: {
-      tour,
-    },
-  });
 };
 
-exports.createTour = (req, res) => {
-  console.log(req.body);
+exports.getOneTour = async (req, res) => {
+  try {
+    const tour = await Tour.findById(req.params.id);
 
-  res.status(201).json({
-    status: "success",
-    data: {
-      tour: req.body,
-    },
-  });
+    res.status(200).json({
+      status: "success",
+      data: {
+        tour,
+      },
+    });
+  } catch (error) {
+    res.status(404).json({
+      status: "fail",
+      message: "Invalid ID!",
+    });
+  }
+};
+
+exports.createTour = async (req, res) => {
+  try {
+    const newTour = await Tour.create(req.body);
+
+    res.status(201).json({
+      status: "success",
+      data: {
+        tour: newTour,
+      },
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "fail",
+      message: error.message,
+    });
+  }
 };
 
 exports.updateTour = (req, res) => {

@@ -4,6 +4,8 @@ const userRouter = require("./routes/userRouter");
 
 const app = express();
 
+// app.use(express.static(`${__dirname}/public`));
+
 // for us to be able to send data with post request this middleware needs to be here
 app.use(express.json());
 
