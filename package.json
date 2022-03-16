@@ -4,40 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "start:prod": "cross-env NODE_ENV=production nodemon server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nik-ves/practice-repository.git"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nik-ves/practice-repository/issues"
-  },
-  "homepage": "https://github.com/nik-ves/practice-repository#readme",
   "dependencies": {
     "dotenv": "^16.0.0",
-    "express": "^4.17.3",
-    "mongoose": "^5.13.14",
-    "morgan": "^1.10.0",
-    "slugify": "^1.6.5",
-    "validator": "^13.7.0"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.4",
-    "prettier": "^1.17.0"
-  },
-  "engines": {
-    "node": ">=10.0.0"
+    "express": "^4.17.3"
   }
 }
