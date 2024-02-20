@@ -1,23 +1,14 @@
 import React from "react";
-
 import ReactDOM from "react-dom/client";
-// import ReactDOM from 'react-dom';
-
-import App from "./App";
 import "./index.css";
+import App from "./App";
 
-// REACT 18
+import StarRating from "./StarRating";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    {/* <StarRating maxRating={5} /> */}
     <App />
   </React.StrictMode>
 );
-
-// REACT 17
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
