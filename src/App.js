@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import StarRating from "./StarRating";
 import { useMovies } from "./useMovies";
+import { useLocalStorageState } from "./useLocalStorageState";
 
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
@@ -176,15 +177,17 @@ export default function App() {
   const [selectedId, setSelectedId] = useState(null);
   const { movies, isLoading, error } = useMovies(query);
 
+  const [watched, setWatched] = useLocalStorageState([], "watched");
+
   // we can also pass methods as default parameters in the states.
   // this code will return the watched array that was set in the local storage
   // since this initialize value in the state is only run once, when the component
   // initally renders, this is perfectly fine to use
   // calling a fucntion is okay, but passing a function is not!
-  const [watched, setWatched] = useState(function () {
-    const storedValue = localStorage.getItem("watched");
-    return JSON.parse(storedValue);
-  });
+  // const [watched, setWatched] = useState(function () {
+  //   const storedValue = localStorage.getItem("watched");
+  //   return JSON.parse(storedValue);
+  // });
 
   function handleSelecteMovie(id) {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
@@ -206,13 +209,13 @@ export default function App() {
   }
 
   // setting the saved movies in local storage after the watched has been updated by the state. at this time, watched is not stale (contains right values) so it can be used in this way
-  useEffect(
-    function () {
-      // states in the effects are always the latest, that's why we can use the real state values
-      localStorage.setItem("watched", JSON.stringify(watched));
-    },
-    [watched]
-  );
+  // useEffect(
+  //   function () {
+  //     // states in the effects are always the latest, that's why we can use the real state values
+  //     localStorage.setItem("watched", JSON.stringify(watched));
+  //   },
+  //   [watched]
+  // );
 
   return (
     <>
