@@ -1,7 +1,10 @@
 import { useEffect } from "react";
+import { useReducer } from "react";
 import Header from "./Header";
 import Main from "./Main";
-import { useReducer } from "react";
+import Loader from "./Loader";
+import Error from "./Error";
+import StartScreen from "./StartScreen";
 
 const initalState = {
   questions: [],
@@ -18,17 +21,19 @@ function reducer(state, action) {
       return { ...state, status: "error" };
 
     default:
-      throw new Error("Unknown function.");
+      throw new Error("Unknown function!");
   }
 }
 
 export default function App() {
-  const [state, dispatch] = useReducer(reducer, initalState);
+  const [{ questions, status }, dispatch] = useReducer(reducer, initalState);
 
-  useEffect(() => {
-    fetch("http://localhost:8000/questions")
-      .then((res) => res.json)
-      .then((data) => dispatch({ tpye: "dataReceived", payload: data }))
+  const numQuestions = questions.length;
+
+  useEffect(function () {
+    fetch("http://localhost:9000/questions")
+      .then((res) => res.json())
+      .then((data) => dispatch({ type: "dataReceived", payload: data }))
       .catch((error) => dispatch({ type: "dataFailed" }));
   }, []);
 
@@ -37,8 +42,9 @@ export default function App() {
       <Header />
 
       <Main>
-        <p>1/15</p>
-        <p>Question?</p>
+        {status === "loading" && <Loader />}
+        {status === "error" && <Error />}
+        {status === "ready" && <StartScreen numQuestions={numQuestions} />}
       </Main>
     </div>
   );
