@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from "react";
-import { createContext } from "vm";
+import { useContext, useEffect, useState, createContext } from "react";
 
 const BASE_URL = "http://localhost:8000";
 
@@ -9,7 +8,7 @@ function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState({});
 
-  useEffectt(function () {
+  useEffect(function () {
     async function fetchCities() {
       try {
         setIsLoading(true);
